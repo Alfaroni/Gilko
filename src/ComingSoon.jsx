@@ -14,7 +14,7 @@ const ComingSoon = () => {
     ];
 
     return (
-        <div className="flex flex-col min-h-screen overflow-hidden bg-brown-50 py-6 selection:bg-tertiary selection:text-white font-body text-sm">
+        <div className="flex flex-col min-h-dvh overflow-hidden bg-brown-50 py-6 selection:bg-tertiary selection:text-white font-body text-sm">
 
             {/* Background Image / Cat Illustration */}
             <div className="fixed bottom-0 right-1/2 translate-x-1/2 w-[80%] opacity-20 pointer-events-none z-0">
