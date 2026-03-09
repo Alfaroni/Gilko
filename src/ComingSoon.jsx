@@ -85,7 +85,7 @@ const ComingSoon = () => {
                 </p>
 
                 <a
-                    href="https://wa.me/6281234567890"
+                    href="https://wa.me/628138784422?text=Halo%20Gilko%20Cattery%2C%20saya%20ingin%20bertanya%20mengenai%20adopsi%20kitten."
                     className="group inline-flex items-center gap-2 pl-4 p-1 bg-white hover:bg-white text-primary rounded-full font-semibold transition-all hover:scale-105 shadow-xl shadow-black/5 border border-gray-100"
                 >
                     Hubungi Kami Sekarang
