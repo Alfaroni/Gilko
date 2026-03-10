@@ -80,7 +80,7 @@ const ComingSoon = () => {
 
 
                 <p className="max-w-xl text-primary/60 font-medium leading-relaxed">
-                    Beritahu kami tentang teman impian Anda dan <br />
+                    Beritahu kami tentang teman impian Kamu dan <br />
                     kami akan segera menghubungi Kamu.
                 </p>
 
