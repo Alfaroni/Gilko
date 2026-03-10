@@ -4,7 +4,7 @@
 
 :root {
   --color-primary: #6f4f37;
-  --color-secondary: #e5d9b8;
+  --color-secondary: #fdfaf3;
   --color-tertiary: #f2a154;
 }
 
@@ -14,8 +14,67 @@
   --color-primary: var(--color-primary);
   --color-secondary: var(--color-secondary);
   --color-tertiary: var(--color-tertiary);
+
+  --animate-fade-in: fade-in 1s ease-out;
+  --animate-slide-up: slide-up 0.8s ease-out;
+  --animate-zoom-in: zoom-in 1s ease-out;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes zoom-in {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 }
 
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--tw-rotate));
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(var(--tw-rotate));
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+/* For image rounded styles in Intro */
+.rounded-intro-img {
+  border-radius: 3rem;
+}
 
 @keyframes marquee {
   0% {
