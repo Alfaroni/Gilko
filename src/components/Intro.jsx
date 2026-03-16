@@ -77,7 +77,7 @@ const Intro = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
+        <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16 overflow-hidden">
 
 
 
