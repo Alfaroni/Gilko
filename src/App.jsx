@@ -15,9 +15,9 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App selection:bg-tertiary selection:text-white font-body text-sm bg-brown-50 min-h-screen">
-      <ComingSoon />
-      {/* <Header />
+    <div className="App selection:bg-tertiary selection:text-white font-body text-sm bg-[#fef6ee] min-h-screen">
+      {/* <ComingSoon /> */}
+      <Header />
       <main>
         <Intro />
         <Marquee />
@@ -30,7 +30,7 @@ function App() {
         <FAQ />
         <Contact />
       </main>
-      <Footer /> */}
+      <Footer />
     </div>
   )
 }

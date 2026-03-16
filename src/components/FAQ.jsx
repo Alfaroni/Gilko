@@ -1,45 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FAQ = () => {
     const [openIndex, setOpenIndex] = useState(0);
+    const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setMousePos({
+                x: (e.clientX / window.innerWidth - 0.5),
+                y: (e.clientY / window.innerHeight - 0.5)
+            });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
 
     const questions = [
         {
             q: "Bagaimana cara mengadopsi kitten?",
-            a: "Kamu bisa menghubungi kami melalui WhatsApp untuk cek ketersediaan kitten. Jika sudah cocok, Kamu bisa membayar booking fee untuk mengunci jadwal jemput atau kirim."
+            a: "Kitten biasanya dapat diadopsi ketika sudah cukup umur dan siap secara fisik maupun sosial, umumnya setelah melewati fase awal tumbuh kembang bersama induknya. Pada usia ini, kitten sudah mulai mandiri, aktif, dan lebih siap beradaptasi dengan lingkungan barunya. Kami memastikan setiap kitten dari Gilko berada dalam kondisi sehat sebelum proses adopsi dilakukan."
         },
         {
-            q: "Apakah kitten sudah divaksin?",
-            a: "Tentu! Semua kitten kami sudah mendapatkan vaksinasi dasar dan obat cacing secara berkala sebelum dilepas ke adopter."
+            q: "Apakah kitten dari Gilko sudah vaksin?",
+            a: "Ya. Setiap kitten mendapatkan perawatan kesehatan dasar sesuai dengan tahapan usianya. Kami bekerja sama dengan dokter hewan untuk memastikan kondisi kesehatan kitten terpantau dengan baik sebelum mereka berpindah ke rumah barunya."
         },
         {
-            q: "Bisa kirim ke luar kota?",
-            a: "Bisa banget! Kami melayani pengiriman ke seluruh wilayah Indonesia menggunakan jasa pet travel yang aman dan terpercaya."
+            q: "Apakah bisa melihat kitten sebelum melakukan adopsi?",
+            a: "Kami memahami bahwa calon adopter ingin mengenal kitten lebih dekat. Informasi mengenai kitten biasanya kami bagikan melalui foto, video, dan update berkala. Untuk detail lebih lanjut mengenai ketersediaan atau proses melihat kitten, Anda dapat menghubungi kami melalui DM atau kontak yang tersedia."
         },
         {
-            q: "Apa saja perlengkapan yang didapat?",
-            a: "Setiap adopsi akan mendapatkan Starter Pack berupa makanan transisi, buku vaksin, dan sertifikat pedigree (jika varian pedigree)."
+            q: "Apakah Gilko Cattery adalah breeder resmi?",
+            a: "Gilko Cattery dibangun dengan komitmen pada breeding yang bertanggung jawab. Kami menjaga standar pemilihan indukan, kesehatan, serta lingkungan tumbuh kitten agar sesuai dengan praktik breeding yang etis dan dapat dipertanggungjawabkan."
+        },
+        {
+            q: "Apakah kitten cocok untuk keluarga dengan anak?",
+            a: "Banyak kitten yang dapat beradaptasi dengan baik dalam lingkungan keluarga. Namun setiap kitten memiliki karakter yang berbeda. Kami biasanya membantu calon adopter memahami karakter kitten sehingga dapat menemukan pasangan yang paling cocok untuk lingkungan rumah dan gaya hidup Anda."
+        },
+        {
+            q: "Apa yang harus disiapkan sebelum mengadopsi kitten?",
+            a: "Sebelum membawa pulang kitten, ada beberapa hal yang sebaiknya sudah disiapkan seperti tempat tidur yang nyaman, litter box, makanan yang sesuai, serta area yang aman untuk mereka beradaptasi. Persiapan ini membantu kitten merasa lebih nyaman di rumah barunya sejak hari pertama."
+        },
+        {
+            q: "Apakah Gilko membantu setelah proses adopsi?",
+            a: "Tentu! Kami siap membantu memberikan panduan dan konsultasi mengenai perawatan, adaptasi, atau hal lain yang dibutuhkan selama masa awal bersama kitten baru Anda."
+        },
+        {
+            q: "Apakah tersedia pilihan kitten jantan dan betina?",
+            a: "Ketersediaan kitten jantan atau betina bergantung pada setiap litter yang lahir. Informasi mengenai kitten yang tersedia biasanya kami update secara berkala melalui media sosial atau dapat ditanyakan langsung melalui kontak kami."
+        },
+        {
+            q: "Apakah kitten dari Gilko sudah litter trained?",
+            a: "Sebagian besar kitten yang dibesarkan dalam lingkungan home-raised biasanya sudah mulai terbiasa menggunakan litter box sejak usia dini. Hal ini memudahkan proses adaptasi mereka ketika berada di rumah baru."
+        },
+        {
+            q: "Apakah bisa melakukan reservasi kitten?",
+            a: "Ya, proses reservasi dapat dilakukan setelah kitten tersedia dan calon adopter telah mendapatkan informasi lengkap mengenai kitten yang dipilih. Detail mengenai proses reservasi dan ketentuannya akan dijelaskan secara transparan sebelum proses dilakukan."
         }
     ];
 
     return (
-        <section id="faq" className="py-24 bg-white relative overflow-hidden">
-            {/* Background Paw Decors */}
-            <div className="absolute top-20 -right-20 opacity-5 rotate-12 pointer-events-none">
-                <svg width="300" height="300" viewBox="0 0 100 100" fill="currentColor" className="text-primary">
-                    <path d="M50 80c-10 0-18-8-18-18s8-18 18-18 18 8 18 18-8 18-18 18zm-25-35c-5 0-10-4-10-10s4-10 10-10 10 4 10 10-4 10-10 10zm50 0c-5 0-10-4-10-10s4-10 10-10 10 4 10 10-4 10-10 10zM35 25c-5 0-10-4-10-10s4-10 10-10 10 4 10 10-4 10-10 10zm30 0c-5 0-10-4-10-10s4-10 10-10 10 4 10 10-4 10-10 10z" />
-                </svg>
-            </div>
-
-            <div className="container mx-auto px-4 md:px-6 relative z-10">
-                <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
+        <section id="faq" className="py-12 lg:py-24 relative">
+            
+            <div className="container max-w-3xl mx-auto px-4 md:px-6 relative z-10">
+                <div className="max-w-4xl mx-auto flex flex-col items-center ">
                     {/* Header */}
-                    <div className="space-y-6 mb-16">
-                        <h3 className="text-tertiary font-bold tracking-[0.2em] uppercase text-xs">Tanya Jawab</h3>
-                        <h2 className="text-4xl lg:text-6xl font-heading font-black text-primary leading-tight">
-                            Hal yang Sering <br /> Ditanyakan.
+                    <div className="space-y-6 mb-16 text-center">
+
+                         <h3 className="text-tertiary font-bold tracking-[0.2em] uppercase text-xs inline-flex items-center gap-2">
+                            <span className="w-8 h-[1px] bg-tertiary"></span>
+                           Tanya Jawab
+                        </h3>
+                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                           Hal yang Sering <br /> Ditanyakan.
                         </h2>
-                        <p className="text-primary/60 max-w-lg mx-auto text-lg">
+                        <p className="text-primary/60 max-w-lg mx-auto">
                             Masih ada pertanyaan lain yang belum terjawab? <br className="hidden md:block" />
                             Jangan ragu untuk mengobrol dengan kami langsung.
                         </p>
@@ -50,14 +84,14 @@ const FAQ = () => {
                         {questions.map((item, i) => (
                             <div
                                 key={i}
-                                className={`overflow-hidden rounded-[2.5rem] border transition-all duration-300 ${openIndex === i ? 'bg-[#FAF3F0] border-tertiary/20 shadow-xl shadow-black/5' : 'bg-white border-primary/5 hover:border-primary/10'
+                                className={`overflow-hidden rounded-3xl border transition-all duration-300 ${openIndex === i ? 'bg-white border-tertiary/20 shadow-xl shadow-black/5' : 'bg-white/50 border-primary/5 hover:border-primary/10'
                                     }`}
                             >
                                 <button
-                                    className="w-full text-left p-8 md:p-10 flex items-center justify-between gap-6"
+                                    className="w-full text-left py-4 px-6 flex items-center justify-between gap-6"
                                     onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
                                 >
-                                    <span className={`text-xl font-black transition-colors ${openIndex === i ? 'text-primary' : 'text-primary'}`}>
+                                    <span className={`text-base lg:text-lg font-bold transition-colors ${openIndex === i ? 'text-primary' : 'text-primary'}`}>
                                         {item.q}
                                     </span>
                                     <div className={`shrink-0 size-10 rounded-full flex items-center justify-center transition-all duration-500 ${openIndex === i ? 'bg-primary border-transparent rotate-180' : 'bg-white border-primary/10'
@@ -71,7 +105,7 @@ const FAQ = () => {
                                     className={`transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <div className="px-8 md:px-10 pb-10 text-primary/60 leading-relaxed font-medium text-lg border-t border-primary/5 pt-6">
+                                    <div className="py-4 px-6 pb-8 text-primary/60 leading-relaxed font-medium border-t border-primary/5 pt-6">
                                         {item.a}
                                     </div>
                                 </div>
@@ -86,11 +120,11 @@ const FAQ = () => {
                             href="https://wa.me/628138784422?text=Halo%20Gilko%20Cattery%2C%20ada%20yang%20ingin%20saya%20tanyakan."
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group flex items-center gap-4 bg-tertiary text-white px-10 py-5 rounded-[2rem] font-black text-lg shadow-2xl shadow-tertiary/25 hover:scale-105 active:scale-95 transition-all"
+                            className="group bg-white text-primary pl-6 p-2 border border-primary/5  rounded-full hover:text-secondary hover:bg-tertiary transition-all shadow-xl shadow-black/5 hover:-translate-y-1 hover:scale-105  inline-flex items-center gap-3"
                         >
-                            Hubungi Admin via WA
-                            <div className="bg-white/20 size-8 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1">
-                                <svg className="size-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            Hubungi Kami via WA
+                            <div className="bg-tertiary size-8 rounded-full flex items-center justify-center transition-all text-white group-hover:bg-white group-hover:text-tertiary group-hover:translate-x-1 rotate-[-45deg]">
+                                <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} />
                                 </svg>
                             </div>
