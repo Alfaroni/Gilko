@@ -4,12 +4,12 @@ const Shop = () => {
     return (
         <section id="shop" className="py-12 lg:py-24">
             <div className="container max-w-6xl mx-auto px-4 md:px-6">
-                <div className="relative bg-[#EDA15C] rounded-[3rem] p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
+                <div className="relative bg-[#EDA15C] rounded-[3rem] py-12 px-6 md:px-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
                     
 
                     <div className="relative z-10 max-w-xl text-left space-y-4">
                         <p className="text-white/80 font-bold tracking-widest text-xs uppercase">Produk Online</p>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-white leading-tight mb-8">
+                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-white leading-tight mb-8 tracking-tight">
                             Belanja kebutuhan anabul makin mudah, praktis, dan terpercaya. 
                         </h2>
                         <a

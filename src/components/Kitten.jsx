@@ -144,13 +144,13 @@ const Kitten = () => {
 
             <div className="container max-w-6xl mx-auto px-4 md:px-6 relative z-10">
                 {/* Header Slider */}
-                <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-8">
+                <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-4 lg:mb-8">
                     <div className='flex-1 space-y-4'>
                         <h3 className="text-tertiary font-bold tracking-[0.2em] uppercase text-xs flex items-center gap-2">
                             <span className="w-8 h-[1px] bg-tertiary"></span>
                             Cari Rumah Baru
                         </h3>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight tracking-tight">
                             Siap Menjadi Bagian dari <br /> Keluarga Baru Kamu
                         </h2>
                         <p>Menantikan Keluarga Baru Kamu Seumur Hidupnya 🏡. Kitten manis ini siap membawa kebahagiaan ke rumah barunya.</p>
@@ -183,7 +183,7 @@ const Kitten = () => {
                         640: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
-                    className="!overflow-visible [&>.swiper-wrapper]:items-end pb-12 md:pb-0 [&_.swiper-pagination-bullet]:bg-primary! [&_.swiper-pagination]:md:hidden"
+                    className="!overflow-visible [&>.swiper-wrapper]:items-end pb-24 md:pb-0 [&_.swiper-pagination-bullet]:bg-primary! [&_.swiper-pagination]:md:hidden [&_.swiper-pagination]:-bottom-6!"
                 >
                     {kittens.map((kitten, i) => (
                         <SwiperSlide key={i}>
