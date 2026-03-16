@@ -15,10 +15,10 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App selection:bg-tertiary selection:text-white font-body text-sm bg-[#fef6ee] min-h-screen">
+    <div className="App selection:bg-tertiary selection:text-white font-body text-sm bg-[#fef6ee] min-h-screen overflow-x-hidden">
       {/* <ComingSoon /> */}
       <Header />
-      <main>
+      <main className='overflow-x-hidden'>
         <Intro />
         <Marquee />
         <About />
