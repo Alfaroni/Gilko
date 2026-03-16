@@ -183,7 +183,7 @@ const Kitten = () => {
                         640: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
-                    className="!overflow-visible [&>.swiper-wrapper]:items-end pb-24 md:pb-0 [&_.swiper-pagination-bullet]:bg-primary! [&_.swiper-pagination]:md:hidden [&_.swiper-pagination]:-bottom-6!"
+                    className="!overflow-visible [&>.swiper-wrapper]:items-end pb-24 md:pb-0 [&>.swiper-pagination>.swiper-pagination-bullet]:bg-primary! [&>.swiper-pagination]:md:hidden [&>.swiper-pagination]:-bottom-6!"
                 >
                     {kittens.map((kitten, i) => (
                         <SwiperSlide key={i}>
@@ -202,7 +202,7 @@ const Kitten = () => {
                                         observer={true}
                                         observeParents={true}
                                         loop={true}
-                                        className="w-full h-full [&_.swiper-pagination-bullet]:bg-primary [&_.swiper-pagination-bullet]:opacity-40 [&_.swiper-pagination-bullet-active]:!bg-primary [&_.swiper-pagination-bullet-active]:opacity-100 [&_.swiper-pagination]:pb-2 drop-shadow-lg"
+                                        className="w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-primary [&>.swiper-pagination>.swiper-pagination-bullet]:opacity-40 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-primary [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg"
                                     >
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
