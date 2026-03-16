@@ -35,7 +35,7 @@ const Contact = () => {
                                 </p>
                             </div>
 
-                            <div className="flex flex-wrap gap-10 pt-4">
+                            <div className="flex flex-wrap gap-4">
                                 <div className="flex items-center gap-4">
                                     <div className="size-12 rounded-2xl bg-primary/5 flex items-center justify-center text-tertiary">
                                         <svg className="size-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path d="M15 10l5 5-5 5M4 4v7a4 4 0 004 4h12"></path></svg>
@@ -59,7 +59,7 @@ const Contact = () => {
 
                         {/* CTA Side */}
                         <div className="lg:w-2/5 w-full">
-                            <div className="bg-white rounded-[2.5rem] p-8 md:p-10 shadow-3xl text-center space-y-6 relative group/btn">
+                            <div className="bg-white rounded-[2.5rem] px-4 py-10 md:px-10 shadow-3xl text-center space-y-6 relative group/btn">
                                 <div className="space-y-2">
                                     <h3 className="text-xl lg:text-2xl font-black text-primary">Mulai Chat Sekarang</h3>
                                     <p className="text-primary/50 text-sm font-medium">Tim kami siap membantu Anda 24/7</p>

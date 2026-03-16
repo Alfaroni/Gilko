@@ -26,17 +26,17 @@ const Intro = () => {
     const floatingImages = [
         {
             url: intro1,
-            pos: "top-[10%] left-[45%]",
+            pos: "top-[10%] right-[5%] lg:left-[45%]",
             size: "w-16 md:w-24",
             rotate: -5,
             rounded: "rounded-2xl md:rounded-[2rem]",
             depth: 0.4,
             delay: 0.2,
-            mobileHidden: true
+            mobileHidden: false
         },
         {
             url: intro2,
-            pos: "top-[20%] left-[5%]",
+            pos: "top-[15%] lg:top-[20%] left-[5%]",
             size: "w-20 md:w-32",
             rotate: -8,
             rounded: "rounded-3xl md:rounded-[3rem]",
@@ -62,7 +62,7 @@ const Intro = () => {
             rounded: "rounded-3xl md:rounded-[3rem]",
             depth: -0.4,
             delay: 0.8,
-            mobileHidden: false
+            mobileHidden: true
         },
         {
             url: intro5,
@@ -72,7 +72,7 @@ const Intro = () => {
             rounded: "rounded-[2.5rem] md:rounded-[3.5rem]",
             depth: 0.5,
             delay: 1.0,
-            mobileHidden: false
+            mobileHidden: true
         },
     ];
 
@@ -102,7 +102,7 @@ const Intro = () => {
                         <div
                             className={`shadow-2xl overflow-hidden group transition-all duration-1000 ease-out
                                 ${img.size} ${img.rounded}
-                                ${isLoaded ? 'opacity-40 md:opacity-100 group-hover:opacity-100' : 'opacity-0'}
+                                ${isLoaded ? 'opacity-100 group-hover:opacity-100' : 'opacity-0'}
                             `}
                             style={{
                                 transitionDelay: isLoaded ? `${img.delay}s` : '0s',
@@ -190,7 +190,7 @@ const Intro = () => {
                             ))}
                         </span>
                         <br className="hidden lg:block" />
-                        {"Dibesarkan dengan ".split("").map((char, i) => (
+                        {" Dibesarkan dengan ".split("").map((char, i) => (
                             <motion.span key={i} variants={{ hidden: { opacity: 0, y: 5 }, visible: { opacity: 1, y: 0 } }}>{char}</motion.span>
                         ))}
                         <span className="text-tertiary font-medium italic">

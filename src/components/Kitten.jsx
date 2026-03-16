@@ -144,18 +144,18 @@ const Kitten = () => {
 
             <div className="container max-w-6xl mx-auto px-4 md:px-6 relative z-10">
                 {/* Header Slider */}
-                <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-16">
-                     <div className='flex-1 space-y-4'>
+                <div className="flex flex-col md:flex-row items-end justify-between gap-8 mb-8">
+                    <div className='flex-1 space-y-4'>
                         <h3 className="text-tertiary font-bold tracking-[0.2em] uppercase text-xs flex items-center gap-2">
                             <span className="w-8 h-[1px] bg-tertiary"></span>
-                           Cari Rumah Baru
+                            Cari Rumah Baru
                         </h3>
                         <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
                             Siap Menjadi Bagian dari <br /> Keluarga Baru Kamu
                         </h2>
                         <p>Menantikan Keluarga Baru Kamu Seumur Hidupnya 🏡. Kitten manis ini siap membawa kebahagiaan ke rumah barunya.</p>
 
-                    </div>    
+                    </div>
                     <div className="bg-neutral-100 p-1.5 rounded-full flex gap-1 shadow-inner">
                         <button className="kitten-prev size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-tertiary transition-all shadow-xl shadow-primary/10 [&.swiper-button-disabled]:opacity-30 [&.swiper-button-disabled]:cursor-not-allowed [&.swiper-button-disabled]:hover:bg-primary">
                             <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /></svg>
@@ -175,16 +175,20 @@ const Kitten = () => {
                         prevEl: '.kitten-prev',
                         nextEl: '.kitten-next',
                     }}
+                    pagination={{
+                        clickable: true,
+                        dynamicBullets: true,
+                    }}
                     breakpoints={{
                         640: { slidesPerView: 2 },
                         1024: { slidesPerView: 3 },
                     }}
-                    className="!overflow-visible [&>.swiper-wrapper]:items-end"
+                    className="!overflow-visible [&>.swiper-wrapper]:items-end pb-12 md:pb-0 [&_.swiper-pagination-bullet]:bg-primary! [&_.swiper-pagination]:md:hidden"
                 >
                     {kittens.map((kitten, i) => (
                         <SwiperSlide key={i}>
                             <div className="group bg-white/80 rounded-[3.5rem] p-4 overflow-hidden border border-primary/5 hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
-                                
+
                                 {/* Mini Photo Gallery Inside Card */}
                                 <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery`}>
                                     <Swiper
@@ -198,33 +202,33 @@ const Kitten = () => {
                                         observer={true}
                                         observeParents={true}
                                         loop={true}
-                                        className="w-full h-full [&_.swiper-pagination-bullet]:bg-tertiary [&_.swiper-pagination-bullet]:opacity-40 [&_.swiper-pagination-bullet-active]:!bg-tertiary [&_.swiper-pagination-bullet-active]:opacity-100 [&_.swiper-pagination]:pb-2 drop-shadow-lg"
+                                        className="w-full h-full [&_.swiper-pagination-bullet]:bg-primary [&_.swiper-pagination-bullet]:opacity-40 [&_.swiper-pagination-bullet-active]:!bg-primary [&_.swiper-pagination-bullet-active]:opacity-100 [&_.swiper-pagination]:pb-2 drop-shadow-lg"
                                     >
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
                                                 {item.type === 'video' ? (
                                                     <div className="w-full h-full relative">
-                                                        <video 
-                                                            src={item.url} 
+                                                        <video
+                                                            src={item.url}
                                                             className="w-full h-full object-cover"
-                                                            autoPlay 
-                                                            muted 
-                                                            loop 
-                                                            playsInline 
+                                                            autoPlay
+                                                            muted
+                                                            loop
+                                                            playsInline
                                                         />
                                                         {/* Video Indicator */}
                                                         <div className="absolute bottom-3 right-3 pointer-events-none">
                                                             <div className="bg-white/20 backdrop-blur-md p-2 rounded-lg">
-                                                                <svg className="size-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                                                <svg className="size-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 ) : item.type === 'iframe' ? (
                                                     <div className="w-full h-full relative">
-                                                        <iframe 
+                                                        <iframe
                                                             src={`${item.url}?autoplay=1&mute=1&loop=1&controls=0&playlist=${item.url.split('/').pop()}`}
-                                                            className="w-full h-full object-cover scale-[1.3]" 
-                                                            allow="autoplay; fullscreen" 
+                                                            className="w-full h-full object-cover scale-[1.3]"
+                                                            allow="autoplay; fullscreen"
                                                             title={kitten.name}
                                                         />
                                                         <div className="absolute inset-0 z-10 bg-transparent" /> {/* Overlay to prevent iframe interaction */}
@@ -235,7 +239,7 @@ const Kitten = () => {
                                             </SwiperSlide>
                                         ))}
                                     </Swiper>
-                                    
+
                                     {/* Mini Nav Arrows */}
                                     <div className="absolute inset-x-2 top-1/2 -translate-y-1/2 z-20 flex justify-between items-center pointer-events-none opacity-0 group-hover/gallery:opacity-100 transition-all duration-300">
                                         <button className={`mini-prev-${kitten.id} pointer-events-auto size-9 rounded-full bg-black/30 backdrop-blur-md text-white border border-white/30 flex items-center justify-center hover:bg-white hover:text-primary hover:scale-110 transition-all shadow-xl`}>
@@ -245,12 +249,11 @@ const Kitten = () => {
                                             <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                                         </button>
                                     </div>
-                                    
+
                                     {/* Availability Tag */}
                                     <div className="absolute top-5 left-5 z-10">
-                                        <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md ${
-                                            kitten.status === 'Available' ? 'bg-green-500/90 text-white' : 'bg-primary/60 text-white'
-                                        }`}>
+                                        <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md ${kitten.status === 'Available' ? 'bg-green-500/90 text-white' : 'bg-primary/60 text-white'
+                                            }`}>
                                             {kitten.status}
                                         </span>
                                     </div>
@@ -266,16 +269,16 @@ const Kitten = () => {
                                         <div className="flex gap-2 text-primary/40">
                                             {/* Vaccine Icon */}
                                             <div className="bg-primary/5 p-1.5 rounded-full" title="Telah Divaksin">
-                                               <svg className='size-4' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M14.9998 1.66675L18.3332 5.00008M14.1665 5.83341L16.6665 3.33341M15.8332 7.50008L7.24984 16.0834C6.4165 16.9167 5.1665 16.9167 4.4165 16.0834L3.9165 15.5834C3.08317 14.7501 3.08317 13.5001 3.9165 12.7501L12.4998 4.16675M7.49984 9.16675L10.8332 12.5001M4.1665 15.8334L1.6665 18.3334M11.6665 3.33341L16.6665 8.33341" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+                                                <svg className='size-4' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M14.9998 1.66675L18.3332 5.00008M14.1665 5.83341L16.6665 3.33341M15.8332 7.50008L7.24984 16.0834C6.4165 16.9167 5.1665 16.9167 4.4165 16.0834L3.9165 15.5834C3.08317 14.7501 3.08317 13.5001 3.9165 12.7501L12.4998 4.16675M7.49984 9.16675L10.8332 12.5001M4.1665 15.8334L1.6665 18.3334M11.6665 3.33341L16.6665 8.33341" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
 
                                             </div>
                                             {/* Certificate Icon */}
                                             <div className="bg-primary/5 p-1.5 rounded-full" title="Bersertifikat Resmi">
                                                 <svg className='size-4' width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M9.33333 1H2.66667C2.22464 1 1.80072 1.1756 1.48816 1.48816C1.17559 1.80072 1 2.22464 1 2.66667V16C1 16.442 1.17559 16.866 1.48816 17.1785C1.80072 17.4911 2.22464 17.6667 2.66667 17.6667H12.6667C13.1087 17.6667 13.5326 17.4911 13.8452 17.1785C14.1577 16.866 14.3333 16.442 14.3333 16V6M9.33333 1C9.59713 0.999575 9.8584 1.05134 10.1021 1.15231C10.3458 1.25328 10.5671 1.40147 10.7533 1.58834L13.7433 4.57834C13.9307 4.76459 14.0793 4.98612 14.1806 5.23014C14.2818 5.47415 14.3338 5.73581 14.3333 6M9.33333 1V5.16667C9.33333 5.38768 9.42113 5.59964 9.57741 5.75592C9.73369 5.9122 9.94565 6 10.1667 6L14.3333 6M5.16667 11.8333L6.83333 13.5L10.1667 10.1667" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
+                                                    <path d="M9.33333 1H2.66667C2.22464 1 1.80072 1.1756 1.48816 1.48816C1.17559 1.80072 1 2.22464 1 2.66667V16C1 16.442 1.17559 16.866 1.48816 17.1785C1.80072 17.4911 2.22464 17.6667 2.66667 17.6667H12.6667C13.1087 17.6667 13.5326 17.4911 13.8452 17.1785C14.1577 16.866 14.3333 16.442 14.3333 16V6M9.33333 1C9.59713 0.999575 9.8584 1.05134 10.1021 1.15231C10.3458 1.25328 10.5671 1.40147 10.7533 1.58834L13.7433 4.57834C13.9307 4.76459 14.0793 4.98612 14.1806 5.23014C14.2818 5.47415 14.3338 5.73581 14.3333 6M9.33333 1V5.16667C9.33333 5.38768 9.42113 5.59964 9.57741 5.75592C9.73369 5.9122 9.94565 6 10.1667 6L14.3333 6M5.16667 11.8333L6.83333 13.5L10.1667 10.1667" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                                                </svg>
 
                                             </div>
                                         </div>
@@ -307,7 +310,7 @@ const Kitten = () => {
                                             className="w-full bg-primary text-white py-4 rounded-full font-black transition-all group-hover:bg-tertiary shadow-xl shadow-primary/10 hover:-translate-y-1 hover:scale-105 text-xs uppercase tracking-widest flex items-center justify-center gap-3 group/btn"
                                         >
                                             Chat Sekarang
-                                            <svg className="size-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                            <svg className="size-4 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                                         </a>
                                     </div>
                                 </div>
