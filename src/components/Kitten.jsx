@@ -259,7 +259,7 @@ const Kitten = () => {
                                     </div>
                                 </div>
 
-                                <div className="px-4 pb-4 space-y-6 flex flex-col flex-grow text-left">
+                                <div className="px-2 lg:px-4 pb-4 space-y-6 flex flex-col flex-grow text-left">
                                     <div className="flex items-center justify-between">
                                         <div>
                                             <h4 className="text-3xl font-heading font-black text-primary leading-none mb-1 lowercase first-letter:uppercase">{kitten.name}</h4>
@@ -296,7 +296,7 @@ const Kitten = () => {
                                         </div>
                                     </div>
 
-                                    <div className="flex flex-wrap gap-2 pt-2">
+                                    <div className="flex flex-wrap gap-1 pt-2">
                                         <span className="bg-white border border-primary/5 px-3 py-1 rounded-full text-[9px] font-black text-primary/40 uppercase tracking-wider">{kitten.age}</span>
                                         <span className="bg-white border border-primary/5 px-3 py-1 rounded-full text-[9px] font-black text-primary/40 uppercase tracking-wider">{kitten.gender}</span>
                                         <span className="bg-white border border-primary/5 px-3 py-1 rounded-full text-[9px] font-black text-primary/40 uppercase tracking-wider">{kitten.color}</span>
