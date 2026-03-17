@@ -62,7 +62,7 @@ const About = () => {
                                 <span className="w-8 h-[1px] bg-tertiary"></span>
                                 Cerita Kami
                             </h3>
-                            <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight tracking-tight">
+                            <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
                                 Dedikasi Kami untuk <br />Kualitas & Kesejahteraan
                             </h2>
                         </div>

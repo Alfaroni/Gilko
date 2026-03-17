@@ -30,7 +30,7 @@ const InstagramGallery = () => {
                             <span className="w-8 h-[1px] bg-tertiary"></span>
                             Visual
                         </h3>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight tracking-tight">
+                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
                             Galeri Instagram <span className='text-tertiary'>Gilko</span>
                         </h2>
                     </div>                    

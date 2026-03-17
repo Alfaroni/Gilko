@@ -156,8 +156,8 @@ const Kitten = () => {
                             <span className="w-8 h-[1px] bg-tertiary"></span>
                             Cari Rumah Baru
                         </h3>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight tracking-tight">
-                            Siap Menjadi Bagian dari <br /> Keluarga Baru Kamu
+                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                            Siap Menjadi Bagian dari <br className='hidden lg:block' /> Keluarga Baru Kamu
                         </h2>
                         <p>Menantikan Keluarga Baru Kamu Seumur Hidupnya 🏡. Kitten manis ini siap membawa kebahagiaan ke rumah barunya.</p>
 

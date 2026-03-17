@@ -140,7 +140,7 @@ const WhyChoose = () => {
                                 <span className="w-8 h-[1px] bg-tertiary"></span>
                             Langkah Adopsi
                             </h3>
-                            <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight tracking-tight">
+                            <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
                             Panduan Informasi
                             </h2>
                         <p className='text-primary/40 text-sm'>Proses yang profesional untuk menyambut anggota keluarga baru Anda.</p>

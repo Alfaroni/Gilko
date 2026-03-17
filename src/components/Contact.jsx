@@ -26,7 +26,7 @@ const Contact = () => {
                                     </span>
                                     Konsultasi Terbuka
                                 </div>
-                                <h2 className="text-3xl lg:text-5xl font-heading font-black text-primary leading-tight tracking-tight">
+                                <h2 className="text-3xl lg:text-5xl font-heading font-black text-primary leading-tight">
                                    Mulai Perjalanan Kamu <br className='hidden lg:block' />
                                     di <span className="text-tertiary italic">Gilko Cattery</span>
                                 </h2>
