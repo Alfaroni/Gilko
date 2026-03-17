@@ -51,7 +51,7 @@ const Testimonial = () => {
                     <span className="w-8 h-[1px] bg-tertiary"></span>
                     Testimoni
                 </h3>
-                <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                <h2 className="text-2xl lg:text-4xl font-heading font-black text-primary leading-tight">
                     Dicintai oleh Keluarga
                 </h2>
             </div>

@@ -9,7 +9,7 @@ const Shop = () => {
 
                     <div className="relative z-10 max-w-xl text-left space-y-4">
                         <p className="text-white/80 font-bold tracking-widest text-xs uppercase">Produk Online</p>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-white leading-tight mb-8">
+                        <h2 className="text-2xl lg:text-4xl font-heading font-black text-white leading-tight mb-8">
                             Belanja kebutuhan anabul makin mudah, praktis, dan terpercaya. 
                         </h2>
                         <a

@@ -70,7 +70,7 @@ const FAQ = () => {
                             <span className="w-8 h-[1px] bg-tertiary"></span>
                            Tanya Jawab
                         </h3>
-                        <h2 className="text-3xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                        <h2 className="text-2xl lg:text-4xl font-heading font-black text-primary leading-tight">
                            Hal yang Sering <br /> Ditanyakan.
                         </h2>
                         <p className="text-primary/60 max-w-lg mx-auto">
