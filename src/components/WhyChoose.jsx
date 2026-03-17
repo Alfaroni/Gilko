@@ -105,7 +105,7 @@ const WhyChoose = () => {
                 <div className="grid lg:grid-cols-2 gap-4 items-stretch mb-12">
 
                     {/* Left: Video of Gilko Activities */}
-                    <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl group aspect-[4/3] lg:aspect-auto lg:max-h-[800px] h-full bg-primary/5">
+                    <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl group aspect-[3/4] lg:aspect-auto lg:max-h-[800px] h-full bg-primary/5">
                         <video 
                             src={videoKitten} 
                             className="w-full h-full object-cover"

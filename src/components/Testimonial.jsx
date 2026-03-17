@@ -82,7 +82,7 @@ const Testimonial = () => {
                         {reviews.map((r, i) => (
                             <SwiperSlide key={i} className="py-8">
                                 <div className="bg-white px-8 py-6 rounded-[2.5rem] shadow-sm border border-black/5 flex flex-col gap-6 text-left transition-all duration-500">
-                                    <div className="flex flex-col md:flex-row gap-4 justify-between items-start">
+                                    <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
                                         <div className="flex items-center gap-4">
                                             <img src={r.image} alt={r.name} className="size-14 rounded-full object-cover border-2 border-white shadow-sm" />
                                             <div>

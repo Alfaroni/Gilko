@@ -7,12 +7,12 @@ const Contact = () => {
             <div className="container max-w-6xl mx-auto px-4 md:px-6">
                 <div className="bg-secondary rounded-[3rem] p-6 md:p-16 relative overflow-hidden shadow-2xl group border border-white/20">
                     {/* Decorative Elements */}
-                    <div className="absolute top-0 right-0 w-1/3 h-full bg-tertiary/10 skew-x-12 translate-x-12 pointer-events-none" />
+                    <div className="absolute hidden lg:block top-0 right-0 w-1/3 h-full bg-tertiary/10 skew-x-12 translate-x-12 pointer-events-none" />
 
                      {/* Background Image / Cat Illustration */}
-                        <div className="absolute -bottom-16 -left-16 size-80 opacity-20 pointer-events-none z-0 rotate-12">
-                            <img src={cat} alt="Cat" className="w-full h-auto" />
-                        </div>
+                    <div className="absolute -bottom-16 -left-16 size-80 opacity-20 pointer-events-none z-0 rotate-12">
+                        <img src={cat} alt="Cat" className="w-full h-auto" />
+                    </div>
                     
 
                     <div className="flex flex-col lg:flex-row items-center gap-12 relative z-10">
