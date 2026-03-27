@@ -31,7 +31,7 @@ const Contact = () => {
                                     di <span className="text-tertiary italic">Gilko Cattery</span>
                                 </h2>
                                 <p className="text-primary/60  leading-relaxed max-w-lg font-medium">
-                                    Dapatkan akses eksklusif ke video terbaru, riwayat kesehatan, dan konsultasi perawatan gratis sebelum Anda membawa pulang kitten impian.
+                                    Dapatkan akses eksklusif ke video terbaru, riwayat kesehatan, dan konsultasi perawatan gratis sebelum kamu membawa pulang kitten impian.
                                 </p>
                             </div>
 
@@ -51,7 +51,7 @@ const Contact = () => {
                                     </div>
                                     <div>
                                         <p className="text-primary font-bold text-sm">Sertifikat Resmi</p>
-                                        <p className="text-primary/40 text-[11px] font-medium tracking-wide uppercase">ICA Certified</p>
+                                        <p className="text-primary/40 text-[11px] font-medium tracking-wide uppercase">WCF / ICA certified</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ const Contact = () => {
                             <div className="bg-white rounded-[2.5rem] px-4 py-10 md:px-10 shadow-3xl text-center space-y-6 relative group/btn">
                                 <div className="space-y-2">
                                     <h3 className="text-xl lg:text-2xl font-black text-primary">Mulai Chat Sekarang</h3>
-                                    <p className="text-primary/50 text-sm font-medium">Tim kami siap membantu Anda 24/7</p>
+                                    <p className="text-primary/50 text-sm font-medium">Tim kami siap membantu kamu 24/7</p>
                                 </div>
                                 
                                 <a

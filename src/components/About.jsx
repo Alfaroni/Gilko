@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import about1 from '../assets/3D2124D1-3E57-4557-8AFF-D6016C33507D.png';
-import about2 from '../assets/90A4755A-990F-4044-B88F-F6F8C2A00E63.png';
-import about3 from '../assets/B1F92DB3-387A-401A-B076-A6328132A3B5.png';
-import about4 from '../assets/E8A66E9B-657B-4530-9690-1D2A59525AE9.png';
+import about1 from '../assets/7.png';
+import about2 from '../assets/8.png';
+import about3 from '../assets/9.png';
+import about4 from '../assets/10.png';
+import about5 from '../assets/11.png';
 
 const About = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -66,18 +67,21 @@ const About = () => {
                                 Dedikasi Kami untuk <br />Kualitas & Kesejahteraan
                             </h2>
                         </div>
-                        <div className="space-y-2 text-primary/70 leading-relaxed">
-                            <p>
-                                Gilko cattery lahir dari kecintaan mendalam pada ras british shorthair yang ikonik. Berawal dari hobby kini kami berkembang menjadi breeder terpercaya yang fokus pada kualitas bloodline yang baik , riwayat kesehatan  yang baik, tempramen yang tenang & standar ras internasional.
+                        <div className="text-primary/70 leading-relaxed text-sm text-left">
+                            <div className="float-left w-[48%] mr-4 mb-2 rounded-[2.5rem] overflow-hidden border-4 border-white/50 aspect-square group">
+                                <img src={about5} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Gilko Cattery Interior" />
+                            </div>
+                            <p className="mb-4">
+                                <span className="font-bold text-primary">Gilko</span> cattery lahir dari kecintaan mendalam pada ras <span className="font-bold text-primary">British Shorthair & Longhair</span> yang ikonik. Berawal dari hobby kini kami berkembang menjadi breeder terpercaya yang fokus pada <span className="font-bold text-primary">kualitas bloodline</span> yang baik, <span className="font-bold text-primary">riwayat kesehatan</span> yang baik, tempramen yang tenang & <span className="font-bold text-primary">standar ras internasional</span>.
+                            </p>
+                            <p className="mb-4">
+                                Setiap kucing yang berada di Gilko, dibesarkan & dirawat di lingkungan rumah yang hangat, <span className="font-bold text-primary">standar pakan yang premium</span> serta kebersihan, perawatan yang ketat & terkontrol. Kami hanya fokus pada ras British Shorthair yang <span className="font-bold text-primary">bersertifikat / pedigree resmi</span>, kami tidak melepas adopsi yang non sertifikat sehingga <span className="font-bold text-primary">kemurnian rasnya terjaga</span> dan memastikan setiap kucing memiliki karakter yang tenang & dapat mudah beradaptasi di lingkungan baru. 
+                            </p>
+                            <p className="mb-4">
+                                Standar wajib kami sebelum melepas kitten adalah <span className="font-bold text-primary">minimal di usia 3.5 - 4 bulan</span> & sudah <span className="font-bold text-primary">divaksin lengkap</span>, serta cek kesehatan rutin oleh dokter hewan. Kami memastikan kitten saat teradopsi dalam kondisi sehat & untuk sertifikat pedigreenya sudah terdaftar resmi di asosiasi <span className="font-bold text-primary">WCF (World Cat Federation)</span> atau <span className="font-bold text-primary">ICA (Indonesian Cat Association)</span>.
                             </p>
                             <p>
-                                Setiap kucing yang berada di Gilko , dibesarkan & dirawat di lingkungan rumah yang hangat,standart pakan yang premium serta kebersihan, perawatan yang ketat & terkontrol. Kami hanya fokus pada ras British Shorthair yang bersertifikat / pedigree resmi, kami tidak melepas adopsi yang non sertifikat sehingga kemurnian rasnya terjaga dan memastikan setiap kucing memiliki karakter yang tenang & dapat mudah beradaptasi di lingkungan baru. 
-                            </p>
-                            <p>
-                                Standart wajib kami sebelum melepas kitten adalah minimal di usia 3.5bln - 4bln & sudah divaksin lengkap, & cek kesehatan rutin oleh dokter hewan. Kami memastikan kitten saat teradopsi dalam kondisi sehat & untuk sertifikat pedigreenya sudah terdaftar resmi di asosiasi WCF ( World Cat Federation) atau ICA (Indonesian Cat Association).
-                            </p>
-                            <p>
-                                Selain itu juga disetiap kittennya sudah tertanam microchip sebagai identitas dimana kode angkanya sudah sesuai dengan sertifikat pedigreenya, jadi secara silsilah sudah sangat jelas & transparan.
+                                Selain itu, di setiap kittennya sudah <span className="font-bold text-primary">tertanam microchip</span> sebagai identitas dimana kode angkanya sudah sesuai dengan sertifikat pedigreenya, jadi secara silsilah sudah sangat <span className="font-bold text-primary">jelas & transparan</span>.
                             </p>
                         </div>
 
@@ -100,7 +104,7 @@ const About = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <div className="text-xl lg:text-2xl font-heading font-black text-primary">ICA</div>
+                                    <div className="text-xl lg:text-2xl font-heading font-black text-primary">ASOSIASI WCF / ICA</div>
                                     <div className="text-xs lg:text-sm  text-primary/60 font-medium">Terdaftar Resmi</div>
                                 </div>
                             </div>

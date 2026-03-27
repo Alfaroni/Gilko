@@ -4,7 +4,7 @@ const Shop = () => {
     return (
         <section id="shop" className="py-12 lg:py-24">
             <div className="container max-w-6xl mx-auto px-4 md:px-6">
-                <div className="relative bg-[#EDA15C] rounded-[3rem] py-12 px-6 md:px-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-4 shadow-2xl">
+                <div className="relative bg-[#EDA15C] rounded-[3rem] py-12 px-6 md:px-12 overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-4 shadow-2xl">
                     
 
                     <div className="relative z-10 max-w-xl text-left space-y-4">

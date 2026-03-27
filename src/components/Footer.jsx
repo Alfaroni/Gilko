@@ -2,6 +2,15 @@ import React from 'react';
 import logo from '../assets/gilko-footer.png';
 
 const Footer = () => {
+    const navLinks = [
+        { name: 'Beranda', href: '#' },
+        { name: 'Tentang Kami', href: '#about' },
+        { name: 'Galeri', href: '#instagram-gallery' },
+        { name: 'Panduan Informasi', href: '#why-choose' },
+        { name: 'Testimoni', href: '#testimonial' },
+        { name: 'FAQ', href: '#faq' },
+    ];
+
     return (
         <footer className="relative bg-primary pt-24 pb-12 overflow-hidden">
             <div className="container max-w-6xl mx-auto px-4 md:px-6 relative z-10">
@@ -15,7 +24,7 @@ const Footer = () => {
                                 className="h-16 w-auto" 
                             />
                             <p className="text-white/70 max-w-md leading-relaxed  text-sm">
-                                Berdedikasi pada pelestarian ras British Shorthair yang berkualitas tinggi. Menghadirkan kucing yang sehat, ceria , tenang ,lucu & menggemaskan untuk menjadi teman hidup di rumah baru kamu.
+                                Berdedikasi pada pelestarian ras British Shorthair & Longhair yang berkualitas tinggi. Menghadirkan kucing yang sehat, ceria , tenang ,lucu & menggemaskan untuk menjadi teman hidup di rumah baru kamu.
                             </p>
                         </div>
                         
@@ -69,10 +78,13 @@ const Footer = () => {
                         <div className="text-left space-y-8">
                             <h5 className="font-heading font-black text-tertiary uppercase">Navigasi</h5>
                             <ul className="space-y-4 text-white font-bold text-[15px]">
-                                <li><a href="#" className="hover:text-tertiary transition-all inline-block">Beranda</a></li>
-                                <li><a href="#about" className="hover:text-tertiary transition-all inline-block">Tentang Kami</a></li>
-                                <li><a href="#kittens" className="hover:text-tertiary transition-all inline-block">Kitten Kami</a></li>
-                                <li><a href="#shop" className="hover:text-tertiary transition-all inline-block">Gilko Shop</a></li>
+                                {navLinks.map((link) => (
+                                    <li key={link.name}>
+                                        <a href={link.href} className="hover:text-tertiary transition-all inline-block">
+                                            {link.name}
+                                        </a>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
@@ -87,9 +99,10 @@ const Footer = () => {
                                         <svg className="size-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                     </div>
                                     <div className="text-left">
-                                        <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">HQ GILKO CATTERY</p>
+                                        {/* <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">HQ GILKO CATTERY</p> */}
                                         <p className="text-sm font-bold text-white leading-relaxed">
-                                            Jakarta Selatan, Indonesia <br /> 
+                                            Citralake Sawangan, <br /> 
+Depok, Jawa Barat, Indonesia
                                         </p>
                                         <p className="text-[11px] text-white/50 font-medium">Buka khusus dengan janji temu</p>
                                     </div>
@@ -99,9 +112,9 @@ const Footer = () => {
                                         <svg className="size-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
                                     </div>
                                     <div className="text-left">
-                                        <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">HUBUNGI KAMI</p>
+                                        <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">Hubungi Kami</p>
                                         <p className="text-sm font-bold text-white">0813-8784-422</p>
-                                        <p className="text-[11px] text-white/50 font-medium">admin@gilkocattery.com</p>
+                                        {/* <p className="text-[11px] text-white/50 font-medium">admin@gilkocattery.com</p> */}
                                     </div>
                                 </div>
                             </div>
@@ -111,10 +124,10 @@ const Footer = () => {
 
                 <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-white/40 ">
                     <div>© {new Date().getFullYear()} Gilko Cattery. Hak cipta dilindungi undang-undang..</div>
-                    <div className="flex gap-8">
+                    {/* <div className="flex gap-8">
                         <span className="hover:text-white transition-colors cursor-default">Penyedia Kitten Terpercaya</span>
                         <span className="hover:text-white transition-colors cursor-default">Made with ❤️ for Cats</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>

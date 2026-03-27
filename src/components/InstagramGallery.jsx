@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import gal1 from '../assets/123CDE9A-1FE2-488B-883C-D65D53084F89.png';
-import gal2 from '../assets/271A49AB-B72C-43F9-A26A-A7376A7ADB68.png';
-import gal3 from '../assets/3D2124D1-3E57-4557-8AFF-D6016C33507D.png';
-import gal4 from '../assets/6EA4679E-2975-4341-98E9-EC63F15041A6.png';
-import gal5 from '../assets/7C905953-8BA1-449C-83EE-CDB67DD8EBBB.png';
-import gal6 from '../assets/90A4755A-990F-4044-B88F-F6F8C2A00E63.png';
-import gal7 from '../assets/A7CFC1E9-E92A-468A-A075-76006769574A.png';
-import gal8 from '../assets/B1F92DB3-387A-401A-B076-A6328132A3B5.png';
+import gal1 from '../assets/12.png';
+import gal2 from '../assets/13.png';
+import gal3 from '../assets/15.png';
+import gal4 from '../assets/16.png';
+import gal5 from '../assets/17.png';
+import gal6 from '../assets/18.png';
+import gal7 from '../assets/19.png';
+import gal8 from '../assets/11.png';
 
 const InstagramGallery = () => {
     const images = [
@@ -33,7 +33,7 @@ const InstagramGallery = () => {
                         <h2 className="text-2xl lg:text-4xl font-heading font-black text-primary leading-tight">
                             Galeri Instagram <span className='text-tertiary'>Gilko</span>
                         </h2>
-                    </div>                    
+                    </div>
                     <a
                         href="https://www.instagram.com/gilkocattery/"
                         target="_blank"
@@ -51,12 +51,12 @@ const InstagramGallery = () => {
 
                 {/* Specific Layout Grid */}
                 <div className="space-y-4">
-                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[180px] md:auto-rows-auto md:h-[650px]'>
+                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto md:h-[780px]'>
                         {[
                             { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0] },
-                            { span: 'col-span-1 row-span-2 md:col-span-2 md:row-span-2', img: images[2] },
+                            { span: 'col-span-1 row-span-2 md:col-span-2 md:row-span-2', img: images[1] },
                             { span: 'col-span-1 row-span-1 md:col-span-3 md:row-span-1', img: images[3] },
-                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[1] },
+                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2] },
                             { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[4] },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5] },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[6] },
@@ -70,11 +70,11 @@ const InstagramGallery = () => {
                                 className={`${item.span} group relative overflow-hidden rounded-2xl md:rounded-[2rem] shadow-sm transition-all duration-500`}
                             >
                                 {/* Static Image */}
-                                    <img
-                                        src={item.img}
-                                        alt={`Gilko Gallery ${idx + 1}`}
-                                        className="w-full h-full object-cover object-center transition-transform duration-1000 ease-out group-hover:scale-110"
-                                    />
+                                <img
+                                    src={item.img}
+                                    alt={`Gilko Gallery ${idx + 1}`}
+                                    className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-110"
+                                />
 
                                 {/* Hover Overlay - "Lihat IG" */}
                                 <div className="absolute inset-0 bg-primary/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col items-center justify-center gap-2">

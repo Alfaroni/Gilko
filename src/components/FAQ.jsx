@@ -26,7 +26,7 @@ const FAQ = () => {
         },
         {
             q: "Apakah bisa melihat kitten sebelum melakukan adopsi?",
-            a: "Kami memahami bahwa calon adopter ingin mengenal kitten lebih dekat. Informasi mengenai kitten biasanya kami bagikan melalui foto, video, dan update berkala. Untuk detail lebih lanjut mengenai ketersediaan atau proses melihat kitten, Anda dapat menghubungi kami melalui DM atau kontak yang tersedia."
+            a: "Kami memahami bahwa calon adopter ingin mengenal kitten lebih dekat. Informasi mengenai kitten biasanya kami bagikan melalui foto, video, dan update berkala. Untuk detail lebih lanjut mengenai ketersediaan atau proses melihat kitten, Kamu dapat menghubungi kami melalui DM atau kontak yang tersedia."
         },
         {
             q: "Apakah Gilko Cattery adalah breeder resmi?",
@@ -34,7 +34,7 @@ const FAQ = () => {
         },
         {
             q: "Apakah kitten cocok untuk keluarga dengan anak?",
-            a: "Banyak kitten yang dapat beradaptasi dengan baik dalam lingkungan keluarga. Namun setiap kitten memiliki karakter yang berbeda. Kami biasanya membantu calon adopter memahami karakter kitten sehingga dapat menemukan pasangan yang paling cocok untuk lingkungan rumah dan gaya hidup Anda."
+            a: "Banyak kitten yang dapat beradaptasi dengan baik dalam lingkungan keluarga. Namun setiap kitten memiliki karakter yang berbeda. Kami biasanya membantu calon adopter memahami karakter kitten sehingga dapat menemukan pasangan yang paling cocok untuk lingkungan rumah dan gaya hidup kamu."
         },
         {
             q: "Apa yang harus disiapkan sebelum mengadopsi kitten?",
@@ -42,7 +42,7 @@ const FAQ = () => {
         },
         {
             q: "Apakah Gilko membantu setelah proses adopsi?",
-            a: "Tentu! Kami siap membantu memberikan panduan dan konsultasi mengenai perawatan, adaptasi, atau hal lain yang dibutuhkan selama masa awal bersama kitten baru Anda."
+            a: "Tentu! Kami siap membantu memberikan panduan dan konsultasi mengenai perawatan, adaptasi, atau hal lain yang dibutuhkan selama masa awal bersama kitten baru kamu."
         },
         {
             q: "Apakah tersedia pilihan kitten jantan dan betina?",

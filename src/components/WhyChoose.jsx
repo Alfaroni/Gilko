@@ -39,7 +39,7 @@ const WhyChoose = () => {
         },
         {
             title: "Dukungan & Konsultasi Seumur Hidup",
-            desc: "Komitmen kami tidak berhenti setelah kitten pulang ke rumah barunya. Kami tetap siap membantu jika Anda membutuhkan panduan mengenai adaptasi, pola makan, perawatan, atau hal lain selama perjalanan bersama anabul anda. Bagi kami, hubungan dengan adopter adalah bagian penting dari tanggung jawab yang kami jaga."
+            desc: "Komitmen kami tidak berhenti setelah kitten pulang ke rumah barunya. Kami tetap siap membantu jika Kamu membutuhkan panduan mengenai adaptasi, pola makan, perawatan, atau hal lain selama perjalanan bersama anabul kamu. Bagi kami, hubungan dengan adopter adalah bagian penting dari tanggung jawab yang kami jaga."
         }
     ];
 
@@ -84,7 +84,7 @@ const WhyChoose = () => {
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
                     <p className="max-w-3xl lg:text-lg font-medium text-primary leading-relaxed text-left">
                         Di Gilko Cattery, kami mendedikasikan diri untuk menghadirkan kitten British <br className="hidden lg:block" />
-                        Shorthair dengan kualitas <span className="font-black">bloodline</span> terbaik dan karakter yang <span className="font-black">tenang & stabil</span>.
+                        Shorthair & Longhair dengan kualitas <span className="font-black">bloodline</span> terbaik dan karakter yang <span className="font-black">tenang & stabil</span>.
                     </p>
                     <a
                         href="https://wa.me/628138784422?text=Halo%20Gilko%20Cattery%2C%20saya%20ingin%20bertanya%20mengenai%20adopsi%20kitten."
@@ -143,7 +143,7 @@ const WhyChoose = () => {
                             <h2 className="text-2xl lg:text-4xl font-heading font-black text-primary leading-tight">
                             Panduan Informasi
                             </h2>
-                        <p className='text-primary/40 text-sm'>Proses yang profesional untuk menyambut anggota keluarga baru Anda.</p>
+                        <p className='text-primary/40 text-sm'>Proses yang profesional untuk menyambut anggota keluarga baru Kamu.</p>
 
                         </div>
 

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cat from '../assets/cat.png';
-import intro1 from '../assets/123CDE9A-1FE2-488B-883C-D65D53084F89.png';
-import intro2 from '../assets/271A49AB-B72C-43F9-A26A-A7376A7ADB68.png';
-import intro3 from '../assets/6EA4679E-2975-4341-98E9-EC63F15041A6.png';
-import intro4 from '../assets/7C905953-8BA1-449C-83EE-CDB67DD8EBBB.png';
-import intro5 from '../assets/A7CFC1E9-E92A-468A-A075-76006769574A.png';
+import intro1 from '../assets/1.png';
+import intro6 from '../assets/2.png';
+import intro2 from '../assets/3.png';
+import intro3 from '../assets/4.png';
+import intro4 from '../assets/5.png';
+import intro5 from '../assets/6.jpg';
 
 const Intro = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -26,9 +27,19 @@ const Intro = () => {
     const floatingImages = [
         {
             url: intro1,
-            pos: "top-[10%] right-[5%] lg:left-[45%]",
-            size: "w-16 md:w-24",
+            pos: "top-[10%] left-[30%] lg:left-[42%]",
+            size: "w-20 md:w-24",
             rotate: -5,
+            rounded: "rounded-2xl md:rounded-[2rem]",
+            depth: 0.4,
+            delay: 0.2,
+            mobileHidden: false
+        },
+         {
+            url: intro6,
+            pos: "top-[10%] left-[50%] lg:left-[48%]",
+            size: "w-20 md:w-24",
+            rotate: 10,
             rounded: "rounded-2xl md:rounded-[2rem]",
             depth: 0.4,
             delay: 0.2,
@@ -42,7 +53,7 @@ const Intro = () => {
             rounded: "rounded-3xl md:rounded-[3rem]",
             depth: -0.6,
             delay: 0.4,
-            mobileHidden: false
+            mobileHidden: true
         },
         {
             url: intro3,
@@ -66,13 +77,13 @@ const Intro = () => {
         },
         {
             url: intro5,
-            pos: "bottom-[0%] right-[15%]",
+            pos: "bottom-[0%] right-[20%] lg:right-[15%]",
             size: "w-24 md:w-36",
             rotate: -10,
-            rounded: "rounded-[2.5rem] md:rounded-[3.5rem]",
+            rounded: "rounded-xl md:rounded-[3.5rem]",
             depth: 0.5,
             delay: 1.0,
-            mobileHidden: true
+            mobileHidden: false
         },
     ];
 
@@ -160,7 +171,7 @@ const Intro = () => {
                         <span className="text-primary uppercase tracking-widest">Breeder British Premium</span>
                     </div>
                     {/* Main Headline */}
-                    <motion.h1 
+                    <motion.h1
                         initial="hidden"
                         animate="visible"
                         variants={{
