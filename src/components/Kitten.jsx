@@ -4,23 +4,44 @@ import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import Assets
-// Import Assets
-import k1 from '../assets/1.png';
-import k2 from '../assets/2.png';
-import k3 from '../assets/3.png';
-import k4 from '../assets/4.png';
-import k5 from '../assets/5.png';
-import k6 from '../assets/6.jpg';
-import k7 from '../assets/7.png';
-import k8 from '../assets/8.png';
-import k9 from '../assets/9.png';
-import k10 from '../assets/10.png';
-import k11 from '../assets/11.png';
-import k12 from '../assets/12.png';
-import k13 from '../assets/13.png';
-import k15 from '../assets/15.png';
-import k16 from '../assets/16.png';
 import videoKitten from '../assets/IMG_0023.mp4';
+
+// Import Kittens from Adopt Folder
+// Bibby
+import bibby1 from '../assets/adopt/Bibby/805562D8-11D3-40C5-BEB5-936840FF8EB6.png';
+import bibby2 from '../assets/adopt/Bibby/95388D06-2CF7-4B73-A65B-E8A17BBECD8A.png';
+import bibby3 from '../assets/adopt/Bibby/E8A66E9B-657B-4530-9690-1D2A59525AE9.png';
+
+// Elena
+import elena1 from '../assets/adopt/Elena/271A49AB-B72C-43F9-A26A-A7376A7ADB68.png';
+
+// Irbris
+import irbris1 from '../assets/adopt/Irbris/0749320E-9491-4E68-A7E6-EBCA6A528D0E.png';
+import irbris2 from '../assets/adopt/Irbris/0C0AF8EC-AFF4-4F7F-8E93-FF765155B057.png';
+import irbris3 from '../assets/adopt/Irbris/123CDE9A-1FE2-488B-883C-D65D53084F89.png';
+import irbris4 from '../assets/adopt/Irbris/865530F1-4818-4CB9-8F66-A9F5366ACBAC.png';
+
+// Kitten
+import kitten1 from '../assets/adopt/Kitten/CAB09811-ED7C-4CCB-8DA2-B33B7B98BAC9.png';
+import kitten2 from '../assets/adopt/Kitten/CB3FA72B-9244-48A9-A31B-A3A44184C7D5.png';
+import kitten3 from '../assets/adopt/Kitten/D049D72E-1FB7-400D-9DBA-AC0E820CABC8.png';
+import kitten4 from '../assets/adopt/Kitten/D710047B-D3C7-4157-B02C-CC60E1B62E41.png';
+import kitten5 from '../assets/adopt/Kitten/EE494ADB-15A8-4D98-93D3-C8F322D3EA7D.png';
+
+// Tyson
+import tyson1 from '../assets/adopt/Tyson/7234D94D-1810-4776-AF41-67EF353180C2.png';
+import tyson2 from '../assets/adopt/Tyson/E71F0182-E48C-451D-8FCA-3187833BBF07.png';
+import tyson3 from '../assets/adopt/Tyson/IMG_8970.jpg';
+
+// Willow
+import willow1 from '../assets/adopt/Willow/6997E3D9-7CBA-4B64-8833-22261E153222.png';
+import willow2 from '../assets/adopt/Willow/9335F7E5-652C-41C1-B05A-B2A7ACE3AAA8.png';
+import willow3 from '../assets/adopt/Willow/BA17A47C-F63A-4168-8893-35CDB2788CBA.png';
+import willow4 from '../assets/adopt/Willow/F81777E1-AA2B-43A3-A7C7-E26CA6701399.png';
+
+// Yogurt
+import yogurt1 from '../assets/adopt/Yogurt/B1F92DB3-387A-401A-B076-A6328132A3B5.png';
+import yogurt2 from '../assets/adopt/Yogurt/IMG_8607.png';
 
 
 // Import Swiper styles
@@ -54,9 +75,10 @@ const Kitten = () => {
             sire: "Grand Ch. Maximus",
             mom: "Lady Bella",
             media: [
-                { type: 'image', url: k1 },
-                { type: 'video', url: videoKitten },
-                { type: 'image', url: k2 }
+                { type: 'image', url: bibby1 },
+                { type: 'image', url: bibby2 },
+                { type: 'image', url: bibby3 },
+                { type: 'video', url: videoKitten }
             ],
             status: "Available"
         },
@@ -70,14 +92,13 @@ const Kitten = () => {
             sire: "Sir Winston",
             mom: "Princess Mia",
             media: [
-                { type: 'image', url: k3 },
-                { type: 'image', url: k4 }
+                { type: 'image', url: elena1 }
             ],
             status: "Booked"
         },
         {
-            id: "irbis",
-            name: "Irbis",
+            id: "irbris",
+            name: "Irbris",
             breed: "British Shorthair",
             birthday: "15 Desember 2025",
             gender: "Jantan",
@@ -85,8 +106,10 @@ const Kitten = () => {
             sire: "King Shorty",
             mom: "Queen Daisy",
             media: [
-                { type: 'image', url: k5 },
-                { type: 'image', url: k7 }
+                { type: 'image', url: irbris1 },
+                { type: 'image', url: irbris2 },
+                { type: 'image', url: irbris3 },
+                { type: 'image', url: irbris4 }
             ],
             status: "Available"
         },
@@ -100,8 +123,9 @@ const Kitten = () => {
             sire: "Duke Fluffy",
             mom: "Duchess Snow",
             media: [
-                { type: 'image', url: k8 },
-                { type: 'image', url: k9 }
+                { type: 'image', url: tyson1 },
+                { type: 'image', url: tyson2 },
+                { type: 'image', url: tyson3 }
             ],
             status: "Available"
         },
@@ -115,8 +139,10 @@ const Kitten = () => {
             sire: "Sir Lancelot",
             mom: "Lady Guinevere",
             media: [
-                { type: 'image', url: k10 },
-                { type: 'image', url: k11 }
+                { type: 'image', url: willow1 },
+                { type: 'image', url: willow2 },
+                { type: 'image', url: willow3 },
+                { type: 'image', url: willow4 }
             ],
             status: "Available"
         },
@@ -130,8 +156,26 @@ const Kitten = () => {
             sire: "Sire Brave",
             mom: "Mom Grace",
             media: [
-                { type: 'image', url: k12 },
-                { type: 'image', url: k13 }
+                { type: 'image', url: kitten1 },
+                { type: 'image', url: kitten2 },
+                { type: 'image', url: kitten3 },
+                { type: 'image', url: kitten4 },
+                { type: 'image', url: kitten5 }
+            ],
+            status: "Available"
+        },
+        {
+            id: "yogurt",
+            name: "Yogurt",
+            breed: "British Shorthair",
+            birthday: "12 Januari 2026",
+            gender: "Jantan",
+            color: "Blue",
+            sire: "Grand Ch. Maximus",
+            mom: "Lady Bella",
+            media: [
+                { type: 'image', url: yogurt1 },
+                { type: 'image', url: yogurt2 }
             ],
             status: "Available"
         }

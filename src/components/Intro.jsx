@@ -77,7 +77,7 @@ const Intro = () => {
         },
         {
             url: intro5,
-            pos: "bottom-[0%] right-[20%] lg:right-[15%]",
+            pos: "bottom-[0%] right-[33%] lg:right-[15%]",
             size: "w-24 md:w-36",
             rotate: -10,
             rounded: "rounded-xl md:rounded-[3.5rem]",
