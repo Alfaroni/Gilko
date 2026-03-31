@@ -48,7 +48,7 @@ const Intro = () => {
         {
             url: intro2,
             // pos: "top-[15%] lg:top-[20%] left-[5%]",
-            pos: "top-[10%] left-[40%]",
+            pos: "top-[10%] left-[30%] lg:left-[40%]",
             size: "w-24 md:w-28",
             rotate: -8,
             rotateMobile: -5,
@@ -59,7 +59,7 @@ const Intro = () => {
         },
         {
             url: intro3,
-            pos: "top-[10%] right-[40%] lg:right-[45%]",
+            pos: "top-[10%] right-[25%] lg:right-[45%]",
             size: "w-24 md:w-28",
             rotate: 12,
             rotateMobile: 8,
@@ -81,8 +81,8 @@ const Intro = () => {
         },
         {
             url: intro5,
-            pos: "bottom-[-3%] right-[45%] lg:bottom-0 lg:right-[15%]",
-            size: "w-28 md:w-36",
+            pos: "bottom-[2%] right-[33%] lg:right-[15%]",
+            size: "w-36",
             rotate: -10,
             rotateMobile: 0,
             rounded: "rounded-2xl",
