@@ -81,8 +81,8 @@ const Intro = () => {
         },
         {
             url: intro5,
-            pos: "bottom-[2%] right-[33%] lg:right-[15%]",
-            size: "w-36",
+            pos: "bottom-[-2%] right-[33%] lg:bottom-0 lg:right-[15%]",
+            size: "w-32 md:w-36",
             rotate: -10,
             rotateMobile: 0,
             rounded: "rounded-2xl",
