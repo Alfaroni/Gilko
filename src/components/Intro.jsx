@@ -11,9 +11,14 @@ import intro5 from '../assets/6.jpg';
 const Intro = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         setIsLoaded(true);
+        const handleResize = () => setIsMobile(window.innerWidth < 768);
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
         const handleMouseMove = (e) => {
             setMousePos({
                 x: (e.clientX / window.innerWidth - 0.5),
@@ -21,69 +26,80 @@ const Intro = () => {
             });
         };
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     const floatingImages = [
         {
             url: intro1,
-            pos: "top-[10%] left-[30%] lg:left-[42%]",
-            size: "w-20 md:w-24",
+            // pos: "top-[10%] left-[30%] lg:left-[42%]",
+            pos: "left-[2%] top-[10%]",
+            size: "w-20 md:w-28",
             rotate: -5,
-            rounded: "rounded-2xl md:rounded-[2rem]",
+            rotateMobile: -5,
+            rounded: "rounded-2xl",
             depth: 0.4,
             delay: 0.2,
-            mobileHidden: false
-        },
-         {
-            url: intro6,
-            pos: "top-[10%] left-[50%] lg:left-[48%]",
-            size: "w-20 md:w-24",
-            rotate: 10,
-            rounded: "rounded-2xl md:rounded-[2rem]",
-            depth: 0.4,
-            delay: 0.2,
-            mobileHidden: false
+            mobileHidden: true
         },
         {
             url: intro2,
-            pos: "top-[15%] lg:top-[20%] left-[5%]",
-            size: "w-20 md:w-32",
+            // pos: "top-[15%] lg:top-[20%] left-[5%]",
+            pos: "top-[10%] left-[40%]",
+            size: "w-24 md:w-28",
             rotate: -8,
-            rounded: "rounded-3xl md:rounded-[3rem]",
+            rotateMobile: -5,
+            rounded: "rounded-2xl",
             depth: -0.6,
             delay: 0.4,
-            mobileHidden: true
+            mobileHidden: false
         },
         {
             url: intro3,
-            pos: "top-[35%] right-[5%]",
-            size: "w-16 md:w-28",
+            pos: "top-[10%] right-[40%] lg:right-[45%]",
+            size: "w-24 md:w-28",
             rotate: 12,
-            rounded: "rounded-2xl md:rounded-[2.5rem]",
+            rotateMobile: 8,
+            rounded: "rounded-2xl",
             depth: 0.8,
             delay: 0.6,
-            mobileHidden: true
+            mobileHidden: false
         },
         {
             url: intro4,
             pos: "bottom-[5%] left-[15%]",
             size: "w-20 md:w-32",
             rotate: 15,
-            rounded: "rounded-3xl md:rounded-[3rem]",
+            rotateMobile: 0,
+            rounded: "rounded-2xl",
             depth: -0.4,
             delay: 0.8,
             mobileHidden: true
         },
         {
             url: intro5,
-            pos: "bottom-[0%] right-[33%] lg:right-[15%]",
-            size: "w-24 md:w-36",
+            pos: "bottom-[-3%] right-[45%] lg:bottom-0 lg:right-[15%]",
+            size: "w-28 md:w-36",
             rotate: -10,
-            rounded: "rounded-xl md:rounded-[3.5rem]",
+            rotateMobile: 0,
+            rounded: "rounded-2xl",
             depth: 0.5,
             delay: 1.0,
             mobileHidden: false
+        },
+        {
+            url: intro6,
+            pos: "top-[10%] right-[5%]",
+            size: "w-20 md:w-24",
+            rotate: 10,
+            rotateMobile: 0,
+            rounded: "rounded-2xl",
+            depth: 0.4,
+            delay: 0.2,
+            mobileHidden: true
         },
     ];
 
@@ -117,7 +133,9 @@ const Intro = () => {
                             `}
                             style={{
                                 transitionDelay: isLoaded ? `${img.delay}s` : '0s',
-                                transform: isLoaded ? `rotate(${img.rotate}deg) scale(1) translateY(0)` : `rotate(${img.rotate}deg) scale(0.5) translateY(100px)`,
+                                transform: isLoaded 
+                                    ? `rotate(${isMobile ? (img.rotateMobile || 0) : img.rotate}deg) scale(1) translateY(0)` 
+                                    : `rotate(${isMobile ? (img.rotateMobile || 0) : img.rotate}deg) scale(0.5) translateY(100px)`,
                             }}
                         >
                             <div className="relative w-full h-full animate-float" style={{ animationDelay: `${i * 0.5}s` }}>

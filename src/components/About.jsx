@@ -67,7 +67,7 @@ const About = () => {
                                 Dedikasi Kami untuk <br />Kualitas & Kesejahteraan
                             </h2>
                         </div>
-                        <div className="text-primary/70 leading-relaxed text-sm text-left">
+                        <div className="text-primary/70 leading-relaxed text-sm text-justify">
                             <div className="float-left w-[48%] mr-4 mb-2 rounded-[2.5rem] overflow-hidden border-4 border-white/50 aspect-square group">
                                 <img src={about5} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Gilko Cattery Interior" />
                             </div>
@@ -85,7 +85,7 @@ const About = () => {
                             </p>
                         </div>
 
-                        <div className="flex  gap-4">
+                        <div className="flex flex-col md:flex-row gap-4">
                             <div className="flex items-center h-12 md:h-14 gap-2">
                                 <div className="bg-primary/5 flex items-center min-w-10 md:min-w-12 h-full justify-center rounded-2xl text-tertiary">
                                     <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +104,7 @@ const About = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <div className="text-xl lg:text-2xl font-heading font-black text-primary">ASOSIASI WCF / ICA</div>
+                                    <div className="text-xllg:text-2xl font-heading font-black text-primary">ASOSIASI WCF / ICA</div>
                                     <div className="text-xs lg:text-sm  text-primary/60 font-medium">Terdaftar Resmi</div>
                                 </div>
                             </div>

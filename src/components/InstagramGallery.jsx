@@ -54,8 +54,8 @@ const InstagramGallery = () => {
                     <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto md:h-[780px]'>
                         {[
                             { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0] },
-                            { span: 'col-span-1 row-span-2 md:col-span-2 md:row-span-2', img: images[1] },
-                            { span: 'col-span-1 row-span-1 md:col-span-3 md:row-span-1', img: images[3] },
+                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-2', img: images[1] },
+                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[3] },
                             { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2] },
                             { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[4] },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5] },

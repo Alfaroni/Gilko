@@ -105,7 +105,7 @@ const FAQ = () => {
                                     className={`transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                                         }`}
                                 >
-                                    <div className="py-4 px-6 pb-8 text-primary/60 leading-relaxed font-medium border-t border-primary/5 pt-6">
+                                    <div className="py-4 px-6 pb-8 text-primary/60 leading-relaxed font-medium border-t border-primary/5 pt-6 text-justify">
                                         {item.a}
                                     </div>
                                 </div>

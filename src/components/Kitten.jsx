@@ -52,6 +52,7 @@ import 'swiper/css/effect-fade';
 
 const Kitten = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [activeTooltip, setActiveTooltip] = useState(null);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -60,68 +61,28 @@ const Kitten = () => {
                 y: (e.clientY / window.innerHeight - 0.5)
             });
         };
+
+        const handleClickOutside = () => setActiveTooltip(null);
+
         window.addEventListener('mousemove', handleMouseMove);
-        return () => window.removeEventListener('mousemove', handleMouseMove);
+        window.addEventListener('click', handleClickOutside);
+
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('click', handleClickOutside);
+        };
     }, []);
 
     const kittens = [
         {
-            id: "bibby",
-            name: "Bibby",
-            breed: "British Shorthair",
-            birthday: "25 Desember 2025",
-            gender: "Jantan",
-            color: "Blue",
-            sire: "Grand Ch. Maximus",
-            mom: "Lady Bella",
-            media: [
-                { type: 'image', url: bibby1 },
-                { type: 'image', url: bibby2 },
-                { type: 'image', url: bibby3 },
-                { type: 'video', url: videoKitten }
-            ],
-            status: "Available"
-        },
-        {
-            id: "elena",
-            name: "Elena",
+            id: "hatori",
+            name: "Hatori",
             breed: "British Longhair",
-            birthday: "10 Januari 2026",
-            gender: "Betina",
-            color: "White / Bicolor",
-            sire: "Sir Winston",
-            mom: "Princess Mia",
-            media: [
-                { type: 'image', url: elena1 }
-            ],
-            status: "Booked"
-        },
-        {
-            id: "irbris",
-            name: "Irbris",
-            breed: "British Shorthair",
-            birthday: "15 Desember 2025",
+            birthday: "17 Januari 2026",
             gender: "Jantan",
-            color: "Blue Golden",
-            sire: "King Shorty",
-            mom: "Queen Daisy",
-            media: [
-                { type: 'image', url: irbris1 },
-                { type: 'image', url: irbris2 },
-                { type: 'image', url: irbris3 },
-                { type: 'image', url: irbris4 }
-            ],
-            status: "Available"
-        },
-        {
-            id: "tyson",
-            name: "Tyson",
-            breed: "British Shorthair",
-            birthday: "20 November 2025",
-            gender: "Jantan",
-            color: "Lilac",
-            sire: "Duke Fluffy",
-            mom: "Duchess Snow",
+            color: "Cinnamon Solid",
+            sire: "GICH Violet Charm’s Irbis of Gilko",
+            mom: "Jordan Lee Yogurt of Gilko",
             media: [
                 { type: 'image', url: tyson1 },
                 { type: 'image', url: tyson2 },
@@ -130,49 +91,30 @@ const Kitten = () => {
             status: "Available"
         },
         {
-            id: "willow",
-            name: "Willow",
-            breed: "British Longhair",
-            birthday: "05 Desember 2025",
-            gender: "Betina",
-            color: "Silver Tabby",
-            sire: "Sir Lancelot",
-            mom: "Lady Guinevere",
-            media: [
-                { type: 'image', url: willow1 },
-                { type: 'image', url: willow2 },
-                { type: 'image', url: willow3 },
-                { type: 'image', url: willow4 }
-            ],
-            status: "Available"
-        },
-        {
-            id: "kitten-6",
-            name: "Kitten",
+            id: "nobi",
+            name: "Nobi",
             breed: "British Shorthair",
-            birthday: "25 Desember 2025",
+            birthday: "17 Januari 2026",
             gender: "Jantan",
-            color: "Cream",
-            sire: "Sire Brave",
-            mom: "Mom Grace",
+            color: "Cinnamon Solid",
+            sire: "GICH Violet Charm’s Irbis of Gilko",
+            mom: "Jordan Lee Yogurt of Gilko",
             media: [
                 { type: 'image', url: kitten1 },
                 { type: 'image', url: kitten2 },
-                { type: 'image', url: kitten3 },
-                { type: 'image', url: kitten4 },
-                { type: 'image', url: kitten5 }
+                { type: 'image', url: kitten3 }
             ],
             status: "Available"
         },
         {
-            id: "yogurt",
-            name: "Yogurt",
+            id: "nipon",
+            name: "Nipon",
             breed: "British Shorthair",
-            birthday: "12 Januari 2026",
+            birthday: "17 Januari 2026",
             gender: "Jantan",
-            color: "Blue",
-            sire: "Grand Ch. Maximus",
-            mom: "Lady Bella",
+            color: "Cinnamon Solid",
+            sire: "GICH Violet Charm’s Irbis of Gilko",
+            mom: "Jordan Lee Yogurt of Gilko",
             media: [
                 { type: 'image', url: yogurt1 },
                 { type: 'image', url: yogurt2 }
@@ -337,15 +279,21 @@ const Kitten = () => {
                                         {/* Icons: Vaccine & Certificate */}
                                         <div className="flex gap-2 text-primary/40">
                                             {/* Vaccine Icon with Tooltip */}
-                                            <div className="relative group/tooltip">
+                                            <div 
+                                                className="relative group/tooltip"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setActiveTooltip(activeTooltip === `vaccine-${kitten.id}` ? null : `vaccine-${kitten.id}`);
+                                                }}
+                                            >
                                                 <div className="bg-primary/5 p-1.5 rounded-full cursor-help">
                                                     <svg className='size-4' width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M14.9998 1.66675L18.3332 5.00008M14.1665 5.83341L16.6665 3.33341M15.8332 7.50008L7.24984 16.0834C6.4165 16.9167 5.1665 16.9167 4.4165 16.0834L3.9165 15.5834C3.08317 14.7501 3.08317 13.5001 3.9165 12.7501L12.4998 4.16675M7.49984 9.16675L10.8332 12.5001M4.1665 15.8334L1.6665 18.3334M11.6665 3.33341L16.6665 8.33341" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                                                     </svg>
                                                 </div>
-
+ 
                                                 {/* Tooltip Content */}
-                                                <div className="absolute bottom-full right-0 mb-3 w-56 opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-300 z-50 pointer-events-none">
+                                                <div className={`absolute bottom-full right-0 mb-3 w-56 transition-all duration-300 z-50 pointer-events-none ${activeTooltip === `vaccine-${kitten.id}` ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible'}`}>
                                                     <div className="bg-white rounded-2xl shadow-2xl border border-primary/5 p-4 relative">
                                                         <div className="space-y-3">
                                                             {[
@@ -367,7 +315,13 @@ const Kitten = () => {
                                                 </div>
                                             </div>
                                             {/* Certificate Icon with Tooltip */}
-                                            <div className="relative group/tooltip">
+                                            <div 
+                                                className="relative group/tooltip"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setActiveTooltip(activeTooltip === `cert-${kitten.id}` ? null : `cert-${kitten.id}`);
+                                                }}
+                                            >
                                                 <div className="bg-primary/5 p-1.5 rounded-full cursor-help">
                                                     <svg className='size-4' width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M9.33333 1H2.66667C2.22464 1 1.80072 1.1756 1.48816 1.48816C1.17559 1.80072 1 2.22464 1 2.66667V16C1 16.442 1.17559 16.866 1.48816 17.1785C1.80072 17.4911 2.22464 17.6667 2.66667 17.6667H12.6667C13.1087 17.6667 13.5326 17.4911 13.8452 17.1785C14.1577 16.866 14.3333 16.442 14.3333 16V6M9.33333 1C9.59713 0.999575 9.8584 1.05134 10.1021 1.15231C10.3458 1.25328 10.5671 1.40147 10.7533 1.58834L13.7433 4.57834C13.9307 4.76459 14.0793 4.98612 14.1806 5.23014C14.2818 5.47415 14.3338 5.73581 14.3333 6M9.33333 1V5.16667C9.33333 5.38768 9.42113 5.59964 9.57741 5.75592C9.73369 5.9122 9.94565 6 10.1667 6L14.3333 6M5.16667 11.8333L6.83333 13.5L10.1667 10.1667" stroke="#F2A154" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -375,7 +329,7 @@ const Kitten = () => {
                                                 </div>
 
                                                 {/* Tooltip Content */}
-                                                <div className="absolute bottom-full right-0 mb-3 opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible transition-all duration-300 z-50 pointer-events-none">
+                                                <div className={`absolute bottom-full right-0 mb-3 transition-all duration-300 z-50 pointer-events-none ${activeTooltip === `cert-${kitten.id}` ? 'opacity-100 visible' : 'opacity-0 invisible group-hover/tooltip:opacity-100 group-hover/tooltip:visible'}`}>
                                                     <div className="bg-white rounded-xl shadow-xl border border-primary/5 px-3 py-1.5 relative whitespace-nowrap">
                                                         <span className="text-[10px] font-bold text-primary">WCF / ICA Certified</span>
                                                         {/* Arrow */}

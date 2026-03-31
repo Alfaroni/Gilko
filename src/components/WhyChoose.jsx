@@ -82,7 +82,7 @@ const WhyChoose = () => {
 
                 {/* Header Section */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-                    <p className="max-w-3xl lg:text-lg font-medium text-primary leading-relaxed text-left">
+                    <p className="max-w-3xl lg:text-lg font-medium text-primary leading-relaxed text-justify">
                         Di Gilko Cattery, kami mendedikasikan diri untuk menghadirkan kitten British <br className="hidden lg:block" />
                         Shorthair & Longhair dengan kualitas <span className="font-black">bloodline</span> terbaik dan karakter yang <span className="font-black">tenang & stabil</span>.
                     </p>
@@ -164,7 +164,7 @@ const WhyChoose = () => {
                                         </div>
                                     </button>
                                     <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === i ? 'max-h-96 pb-6' : 'max-h-0'}`}>
-                                        <p className="text-sm leading-relaxed text-primary/60 font-medium text-left">
+                                        <p className="text-sm leading-relaxed text-primary/60 font-medium text-justify">
                                             {item.desc}
                                         </p>
                                     </div>
@@ -187,7 +187,7 @@ const WhyChoose = () => {
                                         {card.icon}
                                     </div>
                                 </div>
-                                <p className="text-xs text-primary/40 leading-relaxed font-medium line-clamp-3">
+                                <p className="text-xs text-primary/40 leading-relaxed font-medium line-clamp-3 text-justify">
                                     {card.desc}
                                 </p>
                             </div>
