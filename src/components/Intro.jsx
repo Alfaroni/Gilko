@@ -104,7 +104,7 @@ const Intro = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-16">
+        <section className="relative min-h-[750px] xl:min-h-screen flex flex-col items-center justify-center pt-32 pb-16">
 
 
 
