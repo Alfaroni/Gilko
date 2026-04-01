@@ -4,7 +4,7 @@ import { Navigation, Pagination, EffectFade } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import Assets
-import videoKitten from '../assets/IMG_0023.mp4';
+import videoKitten from '../assets/daily.mp4';
 
 // Import Kittens from Kitten Folder
 // Hatori
@@ -192,17 +192,45 @@ const Kitten = () => {
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
                                                 {item.type === 'video' ? (
-                                                    <div className="w-full h-full relative">
+                                                    <div 
+                                                        className="w-full h-full relative cursor-pointer"
+                                                        onClick={(e) => {
+                                                            const video = e.currentTarget.querySelector('video');
+                                                            const icon = e.currentTarget.querySelector('.play-icon');
+                                                            if (video) {
+                                                                if (video.paused) {
+                                                                    video.play();
+                                                                    if (icon) {
+                                                                        icon.classList.add('opacity-0', 'scale-95');
+                                                                        icon.classList.remove('opacity-100', 'scale-100');
+                                                                    }
+                                                                } else {
+                                                                    video.pause();
+                                                                    if (icon) {
+                                                                        icon.classList.remove('opacity-0', 'scale-95');
+                                                                        icon.classList.add('opacity-100', 'scale-100');
+                                                                    }
+                                                                }
+                                                            }
+                                                        }}
+                                                    >
                                                         <video
-                                                            src={item.url}
                                                             className="w-full h-full object-cover"
                                                             autoPlay
                                                             muted
                                                             loop
                                                             playsInline
-                                                        />
+                                                        >
+                                                            <source src={item.url} type="video/mp4" />
+                                                        </video>
+                                                        {/* Play/Pause Indicator */}
+                                                        <div className="play-icon opacity-0 scale-95 absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 z-10">
+                                                            <div className="size-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl text-white">
+                                                                <svg className="size-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                                            </div>
+                                                        </div>
                                                         {/* Video Indicator */}
-                                                        <div className="absolute bottom-3 right-3 pointer-events-none">
+                                                        <div className="absolute bottom-3 right-3 pointer-events-none z-10">
                                                             <div className="bg-white/20 backdrop-blur-md p-2 rounded-lg">
                                                                 <svg className="size-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                                             </div>

@@ -1,9 +1,64 @@
-import React, { useState, useEffect } from 'react';
-import videoKitten from '../assets/IMG_0023.mp4';
+import React, { useState, useEffect, useRef } from 'react';
+import videoKitten from '../assets/daily.mp4';
 
 const WhyChoose = () => {
     const [openIndex, setOpenIndex] = useState(5); // Default open the last one as per screenshot
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const videoRef = useRef(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [isMuted, setIsMuted] = useState(false);
+
+    const togglePlay = () => {
+        if (videoRef.current) {
+            if (isPlaying) {
+                videoRef.current.pause();
+            } else {
+                videoRef.current.play();
+            }
+        }
+    };
+
+    const toggleMute = (e) => {
+        e.stopPropagation();
+        if (videoRef.current) {
+             videoRef.current.muted = !isMuted;
+        }
+        setIsMuted(!isMuted);
+    };
+
+    useEffect(() => {
+        const video = videoRef.current;
+        if (video) {
+            const handlePlay = () => setIsPlaying(true);
+            const handlePause = () => setIsPlaying(false);
+            
+            video.addEventListener('play', handlePlay);
+            video.addEventListener('pause', handlePause);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const source = video.querySelector('source');
+                        if (source && !source.src) {
+                            source.src = source.dataset.src;
+                            video.load();
+                        }
+                        video.play().catch(() => setIsPlaying(false));
+                    } else {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.5 }); // Play when 50% of the video is visible
+
+            observer.observe(video);
+            
+            return () => {
+                video.removeEventListener('play', handlePlay);
+                video.removeEventListener('pause', handlePause);
+                observer.disconnect();
+            };
+        }
+    }, []);
 
     useEffect(() => {
         const handleMouseMove = (e) => {
@@ -105,28 +160,55 @@ const WhyChoose = () => {
                 <div className="grid lg:grid-cols-2 gap-4 items-stretch mb-12">
 
                     {/* Left: Video of Gilko Activities */}
-                    <div className="relative rounded-[3.5rem] overflow-hidden shadow-2xl group aspect-[3/4] lg:aspect-auto lg:max-h-[800px] h-full bg-primary/5">
+                    <div 
+                        className="relative rounded-[3.5rem] overflow-hidden shadow-2xl group aspect-[3/4] lg:aspect-auto lg:max-h-[640px] h-full bg-primary/5 cursor-pointer"
+                        onClick={togglePlay}
+                    >
                         <video 
-                            src={videoKitten} 
+                            ref={videoRef}
                             className="w-full h-full object-cover"
-                            autoPlay 
-                            muted 
+                            muted={isMuted}
                             loop 
                             playsInline
                             style={{ transform: `scale(1.1) translate3d(${mousePos.x * 20}px, ${mousePos.y * 20}px, 0)` }}
-                        />
+                        >
+                            <source data-src={videoKitten} type="video/mp4" />
+                        </video>
                         {/* Overlay to darken slightly and add premium feel */}
-                        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+                        <div className="absolute inset-0 pointer-events-none group-hover:bg-black/20 transition-colors duration-300" />
                         
-                        {/* Floating Badge */}
-                        <div className="absolute bottom-10 left-10 z-20">
-                            <div className="bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-3xl flex items-center gap-4">
-                                <div className="size-12 rounded-2xl bg-tertiary flex items-center justify-center animate-pulse">
-                                    <svg className="size-6 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        {/* Mute/Unmute Button */}
+                        <button 
+                            onClick={toggleMute}
+                            className="absolute top-6 right-6 z-20 bg-black/30 hover:bg-black/50 backdrop-blur-md p-3 rounded-full text-white transition-colors border border-white/10"
+                        >
+                            {isMuted ? (
+                                <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                                </svg>
+                            ) : (
+                                <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                </svg>
+                            )}
+                        </button>
+
+                        {/* Floating Badge (Play/Pause indicator) */}
+                        <div className="absolute bottom-10 left-10 z-20 pointer-events-none">
+                            <div className="bg-black/30 backdrop-blur-md border border-white/10 p-4 rounded-3xl flex items-center gap-4 shadow-xl">
+                                <div className={`size-12 rounded-2xl bg-tertiary flex items-center justify-center transition-all duration-300 shadow-xl border border-white/10 text-white ${!isPlaying ? 'animate-pulse scale-105 bg-tertiary/80' : 'bg-primary/20 backdrop-blur-md'}`}>
+                                    {isPlaying ? (
+                                        <svg className="size-5" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                    ) : (
+                                        <svg className="size-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                    )}
                                 </div>
                                 <div className="text-left">
-                                    <p className="text-white font-black text-sm uppercase tracking-widest">Gilko Activity</p>
-                                    <p className="text-white/60 text-[10px] font-bold">Watch our daily cattery routine</p>
+                                    <p className="text-white font-black text-sm uppercase tracking-widest mb-1.5">Gilko Activity</p>
+                                    <p className="text-white/70 text-[10px] font-bold tracking-wide">
+                                        {isPlaying ? 'Playing daily cattery routine' : 'Tap to watch cattery routine'}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -134,13 +216,13 @@ const WhyChoose = () => {
 
                     {/* Right: Accordion */}
                     <div className="bg-white backdrop-blur-sm rounded-[3.5rem] p-8 shadow-xl border border-white h-full flex flex-col">
-                        <div className="mb-6 space-y-4 text-left">
+                        <div className="mb-4 space-y-2 text-left">
 
                             <h3 className="text-tertiary font-bold tracking-[0.2em] uppercase text-xs flex items-center gap-2">
                                 <span className="w-8 h-[1px] bg-tertiary"></span>
                             Langkah Adopsi
                             </h3>
-                            <h2 className="text-2xl lg:text-4xl font-heading font-black text-primary leading-tight">
+                            <h2 className="text-2xl lg:text-3xl font-heading font-black text-primary leading-tight">
                             Panduan Informasi
                             </h2>
                         <p className='text-primary/40 text-sm'>Proses yang profesional untuk menyambut anggota keluarga baru Kamu.</p>
@@ -152,7 +234,7 @@ const WhyChoose = () => {
                                 <div key={i} className="border-b border-primary/5 last:border-0">
                                     <button
                                         onClick={() => setOpenIndex(openIndex === i ? -1 : i)}
-                                        className="w-full py-5 flex items-center justify-between text-left group"
+                                        className="w-full py-3 flex items-center justify-between text-left group"
                                     >
                                         <span className={`font-bold tracking-tight transition-colors ${openIndex === i ? 'text-primary' : 'text-primary'}`}>
                                             {item.title}
@@ -187,7 +269,7 @@ const WhyChoose = () => {
                                         {card.icon}
                                     </div>
                                 </div>
-                                <p className="text-xs text-primary/40 leading-relaxed font-medium line-clamp-3 text-justify">
+                                <p className="text-xs text-primary/40 leading-relaxed font-medium">
                                     {card.desc}
                                 </p>
                             </div>
