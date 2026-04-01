@@ -123,7 +123,7 @@ const Intro = () => {
                     <div
                         className="transition-transform duration-200 ease-out"
                         style={{
-                            transform: `translate3d(${mousePos.x * img.depth * 150}px, ${mousePos.y * img.depth * 150}px, 0)`
+                            transform: `translate3d(${mousePos.x * img.depth * 50}px, ${mousePos.y * img.depth * 50}px, 0)`
                         }}
                     >
                         <div
@@ -155,7 +155,7 @@ const Intro = () => {
                 <div
                     className="absolute top-10  text-primary left-[5%] lg:top-0 lg:left-20 opacity-10 pointer-events-none transition-transform duration-200 ease-out"
                     style={{
-                        transform: `translate3d(${mousePos.x * 80}px, ${mousePos.y * 80}px, 0) rotate(-15deg) scale(0.9)`
+                        transform: `translate3d(${mousePos.x * 20}px, ${mousePos.y * 20}px, 0) rotate(-15deg) scale(0.9)`
                     }}
                 >
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -170,7 +170,7 @@ const Intro = () => {
                 <div
                     className="absolute top-20 text-primary right-[10%] lg:top-0 lg:right-[15%] opacity-10 pointer-events-none transition-transform duration-200 ease-out"
                     style={{
-                        transform: `translate3d(${mousePos.x * -80}px, ${mousePos.y * -80}px, 0) rotate(15deg) scale(1.1)`
+                        transform: `translate3d(${mousePos.x * -20}px, ${mousePos.y * -20}px, 0) rotate(15deg) scale(1.1)`
                     }}
                 >
                     <svg width="85" height="79" viewBox="0 0 85 79" fill="none" xmlns="http://www.w3.org/2000/svg">

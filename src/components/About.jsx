@@ -104,7 +104,7 @@ const About = () => {
                                     </svg>
                                 </div>
                                 <div>
-                                    <div className="text-xllg:text-2xl font-heading font-black text-primary">ASOSIASI WCF / ICA</div>
+                                    <div className="text-xl lg:text-2xl font-heading font-black text-primary">ASOSIASI WCF / ICA</div>
                                     <div className="text-xs lg:text-sm  text-primary/60 font-medium">Terdaftar Resmi</div>
                                 </div>
                             </div>

@@ -51,14 +51,14 @@ const InstagramGallery = () => {
 
                 {/* Specific Layout Grid */}
                 <div className="space-y-4">
-                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto lg:h-[920px]'>
+                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto lg:h-[840px]'>
                         {[
                             { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0], pos: 'object-center' },
-                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-2', img: images[1], pos: 'object-center' },
-                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[3], pos: 'object-top' },
+                            { span: 'col-span-1 row-span-1 md:col-span-3 md:row-span-2', img: images[1], pos: 'object-center' },
+                            { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[3], pos: 'object-[50%_20%]' },
                             { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2], pos: 'object-top' },
-                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[4], pos: 'object-top' },
-                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5], pos: 'object-top' },
+                            { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[4], pos: 'object-[50%_20%]' },
+                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5], pos: 'object-[50%_30%]' },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[6], pos: 'object-top' },
                             { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[7], pos: 'object-center' },
                         ].map((item, idx) => (
@@ -67,7 +67,7 @@ const InstagramGallery = () => {
                                 href="https://www.instagram.com/gilkocattery/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={`${item.span} group relative overflow-hidden rounded-2xl md:rounded-[2rem] shadow-sm transition-all duration-500`}
+                                className={`${item.span} group relative overflow-hidden rounded-2xl md:rounded-[2rem] shadow-sm bg-black transition-all duration-500`}
                             >
                                 {/* Static Image */}
                                 <img

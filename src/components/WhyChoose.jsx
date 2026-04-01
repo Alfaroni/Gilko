@@ -81,8 +81,8 @@ const WhyChoose = () => {
             <div className="container max-w-6xl mx-auto px-4 md:px-6 relative z-10">
 
                 {/* Header Section */}
-                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 mb-12">
-                    <p className="max-w-3xl lg:text-lg font-medium text-primary leading-relaxed text-justify">
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-2 mb-12">
+                    <p className="flex-1 lg:text-lg font-medium text-primary leading-relaxed text-justify">
                         Di Gilko Cattery, kami mendedikasikan diri untuk menghadirkan kitten British <br className="hidden lg:block" />
                         Shorthair & Longhair dengan kualitas <span className="font-black">bloodline</span> terbaik dan karakter yang <span className="font-black">tenang & stabil</span>.
                     </p>

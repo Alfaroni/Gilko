@@ -54,13 +54,14 @@ const Kitten = () => {
             name: "Hatori",
             breed: "British Longhair",
             birthday: "17 Januari 2026",
+            bloodType: "A",
             gender: "Jantan",
             color: "Cinnamon Solid",
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: hatori1 },
-                { type: 'image', url: hatori2 },
+                { type: 'image', url: hatori1, pos: "object-center" },
+                { type: 'image', url: hatori2, pos: "object-center" },
             ],
             status: "Available"
         },
@@ -69,13 +70,14 @@ const Kitten = () => {
             name: "Nobi",
             breed: "British Shorthair",
             birthday: "17 Januari 2026",
+            bloodType: "A",
             gender: "Jantan",
             color: "Cinnamon Solid",
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: nobi1 },
-                { type: 'image', url: nobi2 }
+                { type: 'image', url: nobi1, pos: "object-center" },
+                { type: 'image', url: nobi2, pos: "object-center" }
             ],
             status: "Available"
         },
@@ -84,12 +86,13 @@ const Kitten = () => {
             name: "Nipon",
             breed: "British Shorthair",
             birthday: "17 Januari 2026",
+            bloodType: "A",
             gender: "Jantan",
             color: "Cinnamon Solid",
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: nipon1 }
+                { type: 'image', url: nipon1, pos: "object-top" }
             ],
             status: "Available"
         }
@@ -216,7 +219,7 @@ const Kitten = () => {
                                                         <div className="absolute inset-0 z-10 bg-transparent" /> {/* Overlay to prevent iframe interaction */}
                                                     </div>
                                                 ) : (
-                                                    <img src={item.url} alt={kitten.name} className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" />
+                                                    <img src={item.url} alt={kitten.name} className={`w-full h-full object-cover transition-transform duration-700 hover:scale-105 ${item.pos || 'object-center'}`} />
                                                 )}
                                             </SwiperSlide>
                                         ))}
@@ -244,7 +247,20 @@ const Kitten = () => {
                                 <div className="px-2 lg:px-4 pb-4 space-y-6 flex flex-col flex-grow text-left">
                                     <div className="flex items-center justify-between">
                                         <div>
-                                            <span className="bg-primary/5 mb-3 -ml-1 inline-flex px-3 py-1 rounded-full text-[9px] font-black text-primary/40 uppercase tracking-wider">{kitten.gender}</span>
+                                            <div className="flex gap-1.5 items-center mb-3 -ml-1">
+                                                <span className="inline-flex px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-wider items-center gap-1 bg-primary/5 text-primary/40">
+                                                    {kitten.gender?.toLowerCase() === 'jantan' ? (
+                                                        <svg className="size-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="10" cy="14" r="4.5"></circle><line x1="13.5" y1="10.5" x2="20" y2="4"></line><polyline points="15 4 20 4 20 9"></polyline></svg>
+                                                    ) : (
+                                                        <svg className="size-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="4.5"></circle><line x1="12" y1="15" x2="12" y2="21"></line><line x1="9" y1="18" x2="15" y2="18"></line></svg>
+                                                    )}
+                                                    {kitten.gender}
+                                                </span>
+                                                <span className="inline-flex px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-wider items-center gap-1 bg-primary/5 text-primary/40">
+                                                    <svg className="size-2.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.5c-3.1 0-5.5-2.4-5.5-5.5 0-3.2 5.5-11 5.5-11s5.5 7.8 5.5 11c0 3.1-2.4 5.5-5.5 5.5z"/></svg>
+                                                    Blood {kitten.bloodType}
+                                                </span>
+                                            </div>
                                             <h4 className="text-2xl font-heading font-black text-primary leading-none mb-1 lowercase first-letter:uppercase">{kitten.name}</h4>
                                             <span className="text-tertiary font-bold text-sm tracking-tight">{kitten.breed}</span>
                                         </div>
