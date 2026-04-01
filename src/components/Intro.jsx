@@ -104,7 +104,7 @@ const Intro = () => {
     ];
 
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-center pt-24 pb-16">
+        <section className="relative min-h-screen flex flex-col items-center justify-center pt-32 pb-16">
 
 
 
@@ -150,7 +150,7 @@ const Intro = () => {
                 </div>
             ))}
 
-            <div className="relative container max-w-6xl mx-auto px-4 md:px-6 z-10 text-center">
+            <div className="relative container max-w-6xl mx-auto px-4 mt-20 mb-24 md:px-6 z-10 text-center">
                 {/* Floating Paws Decoration */}
                 <div
                     className="absolute top-10  text-primary left-[5%] lg:top-0 lg:left-20 opacity-10 pointer-events-none transition-transform duration-200 ease-out"
