@@ -56,7 +56,7 @@ const InstagramGallery = () => {
                             { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0], pos: 'object-center' },
                             { span: 'col-span-1 row-span-1 md:col-span-3 md:row-span-2', img: images[1], pos: 'object-center' },
                             { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[3], pos: 'object-[50%_20%]' },
-                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2], pos: 'object-top' },
+                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2], pos: 'object-center' },
                             { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[4], pos: 'object-[50%_20%]' },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5], pos: 'object-[50%_30%]' },
                             { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[6], pos: 'object-top' },

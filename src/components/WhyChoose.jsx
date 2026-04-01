@@ -7,6 +7,7 @@ const WhyChoose = () => {
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted, setIsMuted] = useState(false);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     const togglePlay = () => {
         if (videoRef.current) {
@@ -24,6 +25,21 @@ const WhyChoose = () => {
              videoRef.current.muted = !isMuted;
         }
         setIsMuted(!isMuted);
+    };
+
+    const toggleFullscreen = (e) => {
+        e.stopPropagation();
+        const video = videoRef.current;
+        if (video) {
+            if (!document.fullscreenElement) {
+                if (video.requestFullscreen) video.requestFullscreen();
+                else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+                else if (video.msRequestFullscreen) video.msRequestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+                else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+            }
+        }
     };
 
     useEffect(() => {
@@ -58,6 +74,18 @@ const WhyChoose = () => {
                 observer.disconnect();
             };
         }
+    }, []);
+
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+        };
     }, []);
 
     useEffect(() => {
@@ -166,7 +194,7 @@ const WhyChoose = () => {
                     >
                         <video 
                             ref={videoRef}
-                            className="w-full h-full object-cover"
+                            className={`w-full h-full ${isFullscreen ? 'object-contain bg-black' : 'object-cover'}`}
                             muted={isMuted}
                             loop 
                             playsInline
@@ -177,24 +205,31 @@ const WhyChoose = () => {
                         {/* Overlay to darken slightly and add premium feel */}
                         <div className="absolute inset-0 pointer-events-none group-hover:bg-black/20 transition-colors duration-300" />
                         
-                        {/* Mute/Unmute Button */}
+                        {/* Fullscreen Button (YouTube-style, toggles expand/compress) */}
                         <button 
-                            onClick={toggleMute}
+                            onClick={toggleFullscreen}
                             className="absolute top-6 right-6 z-20 bg-black/30 hover:bg-black/50 backdrop-blur-md p-3 rounded-full text-white transition-colors border border-white/10"
                         >
-                            {isMuted ? (
-                                <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                            {isFullscreen ? (
+                                // Compress / Exit Fullscreen icon
+                                <svg className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                    <polyline points="4 14 10 14 10 20"/>
+                                    <polyline points="20 10 14 10 14 4"/>
+                                    <line x1="10" y1="14" x2="3" y2="21"/>
+                                    <line x1="21" y1="3" x2="14" y2="10"/>
                                 </svg>
                             ) : (
-                                <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                // Expand / Enter Fullscreen icon
+                                <svg className="size-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <polyline points="9 21 3 21 3 15"/>
+                                    <line x1="21" y1="3" x2="14" y2="10"/>
+                                    <line x1="3" y1="21" x2="10" y2="14"/>
                                 </svg>
                             )}
                         </button>
 
-                        {/* Floating Badge (Play/Pause indicator) */}
+                        {/* Floating Badge (Play/Pause/Mute indicator) */}
                         <div className="absolute bottom-10 left-10 z-20 pointer-events-none">
                             <div className="bg-black/30 backdrop-blur-md border border-white/10 p-4 rounded-3xl flex items-center gap-4 shadow-xl">
                                 <div className={`size-12 rounded-2xl bg-tertiary flex items-center justify-center transition-all duration-300 shadow-xl border border-white/10 text-white ${!isPlaying ? 'animate-pulse scale-105 bg-tertiary/80' : 'bg-primary/20 backdrop-blur-md'}`}>
@@ -204,11 +239,28 @@ const WhyChoose = () => {
                                         <svg className="size-6 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                                     )}
                                 </div>
-                                <div className="text-left">
+                                <div className="text-left flex flex-col justify-center">
                                     <p className="text-white font-black text-sm uppercase tracking-widest mb-1.5">Gilko Activity</p>
-                                    <p className="text-white/70 text-[10px] font-bold tracking-wide">
-                                        {isPlaying ? 'Playing daily cattery routine' : 'Tap to watch cattery routine'}
-                                    </p>
+                                    <div className="flex items-center gap-2">
+                                        <p className="text-white/70 text-[10px] font-bold tracking-wide leading-none mt-0.5">
+                                            {isPlaying ? 'Playing daily cattery routine' : 'Tap to watch cattery routine'}
+                                        </p>
+                                        <button 
+                                            onClick={toggleMute}
+                                            className="pointer-events-auto bg-black/40 hover:bg-black/60 rounded-full p-[3px] border border-white/10 text-white transition-colors flex"
+                                        >
+                                            {isMuted ? (
+                                                <svg className="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clipRule="evenodd" />
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                                                </svg>
+                                            ) : (
+                                                <svg className="size-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                                </svg>
+                                            )}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
