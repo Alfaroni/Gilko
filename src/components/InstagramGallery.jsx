@@ -51,16 +51,16 @@ const InstagramGallery = () => {
 
                 {/* Specific Layout Grid */}
                 <div className="space-y-4">
-                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto md:h-[780px]'>
+                    <div className='grid grid-cols-2 md:grid-cols-6 gap-3 md:gap-4 auto-rows-[300px] md:auto-rows-auto lg:h-[920px]'>
                         {[
-                            { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0] },
-                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-2', img: images[1] },
-                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[3] },
-                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2] },
-                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[4] },
-                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5] },
-                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[6] },
-                            { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[7] },
+                            { span: 'col-span-1 row-span-1 md:col-span-1 md:row-span-1', img: images[0], pos: 'object-center' },
+                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-2', img: images[1], pos: 'object-center' },
+                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[3], pos: 'object-top' },
+                            { span: 'col-span-2 row-span-1 md:col-span-1 md:row-span-1', img: images[2], pos: 'object-top' },
+                            { span: 'col-span-2 row-span-1 md:col-span-3 md:row-span-1', img: images[4], pos: 'object-top' },
+                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[5], pos: 'object-top' },
+                            { span: 'col-span-1 row-span-1 md:col-span-2 md:row-span-1', img: images[6], pos: 'object-top' },
+                            { span: 'col-span-2 row-span-1 md:col-span-2 md:row-span-1', img: images[7], pos: 'object-center' },
                         ].map((item, idx) => (
                             <a
                                 key={idx}
@@ -73,7 +73,7 @@ const InstagramGallery = () => {
                                 <img
                                     src={item.img}
                                     alt={`Gilko Gallery ${idx + 1}`}
-                                    className="w-full h-full object-cover object-top transition-transform duration-1000 ease-out group-hover:scale-110"
+                                    className={`w-full h-full object-cover ${item.pos} transition-transform duration-1000 ease-out group-hover:scale-110`}
                                 />
 
                                 {/* Hover Overlay - "Lihat IG" */}

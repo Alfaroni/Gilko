@@ -30,7 +30,7 @@ const About = () => {
                         >
                             <div className="space-y-4 pt-12">
                                 <div className="aspect-[4/5] rounded-3xl bg-secondary/30 overflow-hidden shadow-lg border-2 border-white/50">
-                                    <img src={about1} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="About Gilko 1" />
+                                    <img src={about1} className="w-full h-full object-cover" alt="About Gilko 1" />
                                 </div>
                                 <div className="aspect-square rounded-3xl bg-tertiary/20 overflow-hidden shadow-lg border-2 border-white/50">
                                     <img src={about2} className="w-full h-full object-cover" alt="About Gilko 2" />
@@ -41,7 +41,7 @@ const About = () => {
                                     <img src={about3} className="w-full h-full object-cover" alt="About Gilko 3" />
                                 </div>
                                 <div className="aspect-[4/5] rounded-3xl bg-secondary/30 overflow-hidden shadow-lg border-2 border-white/50">
-                                    <img src={about4} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="About Gilko 4" />
+                                    <img src={about4} className="w-full h-full object-cover" alt="About Gilko 4" />
                                 </div>
                             </div>
                         </div>

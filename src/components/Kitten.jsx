@@ -6,42 +6,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 // Import Assets
 import videoKitten from '../assets/IMG_0023.mp4';
 
-// Import Kittens from Adopt Folder
-// Bibby
-import bibby1 from '../assets/adopt/Bibby/805562D8-11D3-40C5-BEB5-936840FF8EB6.png';
-import bibby2 from '../assets/adopt/Bibby/95388D06-2CF7-4B73-A65B-E8A17BBECD8A.png';
-import bibby3 from '../assets/adopt/Bibby/E8A66E9B-657B-4530-9690-1D2A59525AE9.png';
+// Import Kittens from Kitten Folder
+// Hatori
+import hatori1 from '../assets/Kitten/Hatori/Foto1.png';
+import hatori2 from '../assets/Kitten/Hatori/Foto2.png';
 
-// Elena
-import elena1 from '../assets/adopt/Elena/271A49AB-B72C-43F9-A26A-A7376A7ADB68.png';
+// Nobi
+import nobi1 from '../assets/Kitten/Nobi/Foto1.png';
+import nobi2 from '../assets/Kitten/Nobi/Foto2.jpg';
 
-// Irbris
-import irbris1 from '../assets/adopt/Irbris/0749320E-9491-4E68-A7E6-EBCA6A528D0E.png';
-import irbris2 from '../assets/adopt/Irbris/0C0AF8EC-AFF4-4F7F-8E93-FF765155B057.png';
-import irbris3 from '../assets/adopt/Irbris/123CDE9A-1FE2-488B-883C-D65D53084F89.png';
-import irbris4 from '../assets/adopt/Irbris/865530F1-4818-4CB9-8F66-A9F5366ACBAC.png';
-
-// Kitten
-import kitten1 from '../assets/adopt/Kitten/CAB09811-ED7C-4CCB-8DA2-B33B7B98BAC9.png';
-import kitten2 from '../assets/adopt/Kitten/CB3FA72B-9244-48A9-A31B-A3A44184C7D5.png';
-import kitten3 from '../assets/adopt/Kitten/D049D72E-1FB7-400D-9DBA-AC0E820CABC8.png';
-import kitten4 from '../assets/adopt/Kitten/D710047B-D3C7-4157-B02C-CC60E1B62E41.png';
-import kitten5 from '../assets/adopt/Kitten/EE494ADB-15A8-4D98-93D3-C8F322D3EA7D.png';
-
-// Tyson
-import tyson1 from '../assets/adopt/Tyson/7234D94D-1810-4776-AF41-67EF353180C2.png';
-import tyson2 from '../assets/adopt/Tyson/E71F0182-E48C-451D-8FCA-3187833BBF07.png';
-import tyson3 from '../assets/adopt/Tyson/IMG_8970.jpg';
-
-// Willow
-import willow1 from '../assets/adopt/Willow/6997E3D9-7CBA-4B64-8833-22261E153222.png';
-import willow2 from '../assets/adopt/Willow/9335F7E5-652C-41C1-B05A-B2A7ACE3AAA8.png';
-import willow3 from '../assets/adopt/Willow/BA17A47C-F63A-4168-8893-35CDB2788CBA.png';
-import willow4 from '../assets/adopt/Willow/F81777E1-AA2B-43A3-A7C7-E26CA6701399.png';
-
-// Yogurt
-import yogurt1 from '../assets/adopt/Yogurt/B1F92DB3-387A-401A-B076-A6328132A3B5.png';
-import yogurt2 from '../assets/adopt/Yogurt/IMG_8607.png';
+// Nipon
+import nipon1 from '../assets/Kitten/Nipon/Foto1.png';
 
 
 // Import Swiper styles
@@ -84,9 +59,8 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: tyson1 },
-                { type: 'image', url: tyson2 },
-                { type: 'image', url: tyson3 }
+                { type: 'image', url: hatori1 },
+                { type: 'image', url: hatori2 },
             ],
             status: "Available"
         },
@@ -100,9 +74,8 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: kitten1 },
-                { type: 'image', url: kitten2 },
-                { type: 'image', url: kitten3 }
+                { type: 'image', url: nobi1 },
+                { type: 'image', url: nobi2 }
             ],
             status: "Available"
         },
@@ -116,8 +89,7 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
-                { type: 'image', url: yogurt1 },
-                { type: 'image', url: yogurt2 }
+                { type: 'image', url: nipon1 }
             ],
             status: "Available"
         }

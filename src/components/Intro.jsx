@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import cat from '../assets/cat.png';
 import intro1 from '../assets/1.png';
-import intro6 from '../assets/2.png';
 import intro2 from '../assets/3.png';
-import intro3 from '../assets/4.png';
+import intro3 from '../assets/2.png';
 import intro4 from '../assets/5.png';
 import intro5 from '../assets/6.jpg';
+import intro6 from '../assets/4.png';
 
 const Intro = () => {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
