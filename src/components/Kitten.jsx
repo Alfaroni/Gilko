@@ -19,6 +19,7 @@ import nobiVideo from '../assets/Kitten/Nobi/nobi.mp4';
 
 // Nipon
 import nipon1 from '../assets/Kitten/Nipon/foto1.png';
+import nipon2 from '../assets/Kitten/Nipon/foto2.png';
 import niponVideo from '../assets/Kitten/Nipon/nipon.mp4';
 
 
@@ -98,7 +99,8 @@ const Kitten = () => {
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
                 { type: 'video', url: niponVideo },
-                { type: 'image', url: nipon1, pos: "object-top" }
+                { type: 'image', url: nipon1, pos: "object-top" },
+                { type: 'image', url: nipon2, pos: "object-top" }
             ],
             status: "Available"
         }
@@ -183,8 +185,7 @@ const Kitten = () => {
                                 {/* Mini Photo Gallery Inside Card */}
                                 <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery`}>
                                     <Swiper
-                                        modules={[Pagination, Navigation, Autoplay]}
-                                        autoplay={{ delay: 3500, disableOnInteraction: false }}
+                                        modules={[Pagination, Navigation]}
                                         navigation={{
                                             prevEl: `.mini-prev-${kitten.id}`,
                                             nextEl: `.mini-next-${kitten.id}`,
@@ -203,7 +204,7 @@ const Kitten = () => {
                                             <SwiperSlide key={idx}>
                                                 {item.type === 'video' ? (
                                                     <div 
-                                                        className="w-full h-full relative cursor-pointer"
+                                                        className="w-full h-full relative cursor-pointer group/video"
                                                         onClick={(e) => {
                                                             const video = e.currentTarget.querySelector('video');
                                                             const icon = e.currentTarget.querySelector('.play-icon');
@@ -239,6 +240,28 @@ const Kitten = () => {
                                                                 <svg className="size-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                                             </div>
                                                         </div>
+                                                        {/* Fullscreen Button */}
+                                                        <button 
+                                                            className="absolute top-5 right-3 z-20 size-6 bg-black/40 hover:bg-black/60 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all opacity-100 md:opacity-0 group-hover/video:opacity-100"
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                const video = e.currentTarget.closest('div').querySelector('video');
+                                                                if (video) {
+                                                                    if (video.requestFullscreen) {
+                                                                        video.requestFullscreen();
+                                                                    } else if (video.webkitRequestFullscreen) {
+                                                                        video.webkitRequestFullscreen();
+                                                                    }
+                                                                }
+                                                            }}
+                                                        >
+                                                            <svg className="size-3" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                                                <polyline points="15 3 21 3 21 9"/>
+                                                                <polyline points="9 21 3 21 3 15"/>
+                                                                <line x1="21" y1="3" x2="14" y2="10"/>
+                                                                <line x1="3" y1="21" x2="10" y2="14"/>
+                                                            </svg>
+                                                        </button>
                                                     </div>
                                                 ) : item.type === 'iframe' ? (
                                                     <div className="w-full h-full relative">
