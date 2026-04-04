@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, EffectFade } from 'swiper/modules';
+import { Navigation, Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import Assets
@@ -183,8 +183,8 @@ const Kitten = () => {
                                 {/* Mini Photo Gallery Inside Card */}
                                 <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery`}>
                                     <Swiper
-                                        modules={[Pagination, EffectFade, Navigation]}
-                                        effect="fade"
+                                        modules={[Pagination, Navigation, Autoplay]}
+                                        autoplay={{ delay: 3500, disableOnInteraction: false }}
                                         navigation={{
                                             prevEl: `.mini-prev-${kitten.id}`,
                                             nextEl: `.mini-next-${kitten.id}`,
@@ -193,6 +193,10 @@ const Kitten = () => {
                                         observer={true}
                                         observeParents={true}
                                         loop={true}
+                                        breakpoints={{
+                                            0: { slidesPerView: 1.2, spaceBetween: 4 },
+                                            1024: { slidesPerView: 1, spaceBetween: 0 }
+                                        }}
                                         className="w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg"
                                     >
                                         {kitten.media.map((item, idx) => (
