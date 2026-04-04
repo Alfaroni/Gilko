@@ -8,15 +8,18 @@ import videoKitten from '../assets/daily.mp4';
 
 // Import Kittens from Kitten Folder
 // Hatori
-import hatori1 from '../assets/Kitten/Hatori/Foto1.png';
-import hatori2 from '../assets/Kitten/Hatori/Foto2.png';
+import hatori1 from '../assets/Kitten/Hatori/foto1.png';
+import hatori2 from '../assets/Kitten/Hatori/foto2.png';
+import hatoriVideo from '../assets/Kitten/Hatori/hatori.mp4';
 
 // Nobi
-import nobi1 from '../assets/Kitten/Nobi/Foto1.png';
-import nobi2 from '../assets/Kitten/Nobi/Foto2.jpg';
+import nobi1 from '../assets/Kitten/Nobi/foto1.png';
+import nobi2 from '../assets/Kitten/Nobi/foto2.png';
+import nobiVideo from '../assets/Kitten/Nobi/nobi.mp4';
 
 // Nipon
-import nipon1 from '../assets/Kitten/Nipon/Foto1.png';
+import nipon1 from '../assets/Kitten/Nipon/foto1.png';
+import niponVideo from '../assets/Kitten/Nipon/nipon.mp4';
 
 
 // Import Swiper styles
@@ -60,6 +63,7 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
+                { type: 'video', url: hatoriVideo },
                 { type: 'image', url: hatori1, pos: "object-center" },
                 { type: 'image', url: hatori2, pos: "object-center" },
             ],
@@ -76,6 +80,7 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
+                { type: 'video', url: nobiVideo },
                 { type: 'image', url: nobi1, pos: "object-center" },
                 { type: 'image', url: nobi2, pos: "object-center" }
             ],
@@ -92,6 +97,7 @@ const Kitten = () => {
             sire: "GICH Violet Charm’s Irbis of Gilko",
             mom: "Jordan Lee Yogurt of Gilko",
             media: [
+                { type: 'video', url: niponVideo },
                 { type: 'image', url: nipon1, pos: "object-top" }
             ],
             status: "Available"
@@ -144,12 +150,12 @@ const Kitten = () => {
                 {/* Main Swiper Slider Wrapper */}
                 <div className="relative group/main-slider">
                     {/* Mobile Only Nav Arrows */}
-                    <div className="flex md:hidden absolute top-[28%] inset-x-0 -translate-y-1/2 z-30 justify-between items-center px-1 pointer-events-none">
-                        <button className="kitten-prev pointer-events-auto size-11 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
-                            <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                    <div className="flex md:hidden absolute top-[55%] inset-x-0 -translate-y-1/2 z-30 justify-between items-center -mx-3 pointer-events-none">
+                        <button className="kitten-prev pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
+                            <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                         </button>
-                        <button className="kitten-next pointer-events-auto size-11 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
-                            <svg className="size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                        <button className="kitten-next pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
+                            <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                         </button>
                     </div>
                 <Swiper
@@ -187,7 +193,7 @@ const Kitten = () => {
                                         observer={true}
                                         observeParents={true}
                                         loop={true}
-                                        className="w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-primary [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-tertiary [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg"
+                                        className="w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg"
                                     >
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
@@ -227,12 +233,6 @@ const Kitten = () => {
                                                         <div className="play-icon opacity-0 scale-95 absolute inset-0 flex items-center justify-center pointer-events-none transition-all duration-300 z-10">
                                                             <div className="size-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center border border-white/30 shadow-2xl text-white">
                                                                 <svg className="size-8 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                                                            </div>
-                                                        </div>
-                                                        {/* Video Indicator */}
-                                                        <div className="absolute bottom-3 right-3 pointer-events-none z-10">
-                                                            <div className="bg-white/20 backdrop-blur-md p-2 rounded-lg">
-                                                                <svg className="size-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                                             </div>
                                                         </div>
                                                     </div>

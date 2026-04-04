@@ -87,10 +87,12 @@ const Testimonial = () => {
                                     <div className="flex flex-col md:flex-row gap-4 justify-between items-start lg:items-center">
                                         <div className="flex items-center gap-4">
                                             <div className="relative">
-                                                <img src={r.image} alt={r.name} className="size-14 rounded-full object-cover border-2 border-white shadow-sm" />
-                                                <div className="absolute -bottom-1 -right-1 bg-tertiary text-white p-1 rounded-full shadow-sm">
-                                                    <svg className="size-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21L1 12l11-9 11 9-11 9z"/></svg> 
+                                                <div className="size-14 rounded-full bg-primary/10 text-primary border-2 border-white shadow-sm flex items-center justify-center text-xl font-bold uppercase">
+                                                    {r.name.charAt(0)}
                                                 </div>
+                                                {/* <div className="absolute -bottom-1 -right-1 bg-tertiary text-white p-1 rounded-full shadow-sm">
+                                                    <svg className="size-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 21L1 12l11-9 11 9-11 9z"/></svg> 
+                                                </div> */}
                                             </div>
                                             <div>
                                                 <h4 className="font-bold text-primary leading-none mb-1 text-base">{r.name}</h4>
@@ -118,12 +120,12 @@ const Testimonial = () => {
                     </Swiper>
 
                     {/* Navigation Arrows - Positioned on far sides */}
-                    <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 z-30 flex justify-between pointer-events-none md:-mx-4 lg:-mx-8">
-                        <button className="testi-prev pointer-events-auto size-10 lg:size-14 rounded-full bg-white text-primary border border-black/5 flex items-center justify-center hover:bg-tertiary hover:text-white hover:scale-110 transition-all shadow-lg active:scale-95 group">
-                            <svg className="size-5 lg:size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path d="M15 19l-7-7 7-7" /></svg>
+                    <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 z-30 flex justify-between pointer-events-none -mx-3 md:-mx-4 lg:-mx-8">
+                        <button className="testi-prev pointer-events-auto size-8 md:size-10 lg:size-14 rounded-full bg-white text-primary border border-black/5 flex items-center justify-center hover:bg-tertiary hover:text-white hover:scale-110 transition-all shadow-lg active:scale-95 group">
+                            <svg className="size-4 md:size-5 lg:size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path d="M15 19l-7-7 7-7" /></svg>
                         </button>
-                        <button className="testi-next pointer-events-auto size-10 lg:size-14 rounded-full bg-white text-primary border border-black/5 flex items-center justify-center hover:bg-tertiary hover:text-white hover:scale-110 transition-all shadow-lg active:scale-95 group">
-                            <svg className="size-5 lg:size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path d="M9 5l7 7-7 7" /></svg>
+                        <button className="testi-next pointer-events-auto size-8 md:size-10 lg:size-14 rounded-full bg-white text-primary border border-black/5 flex items-center justify-center hover:bg-tertiary hover:text-white hover:scale-110 transition-all shadow-lg active:scale-95 group">
+                            <svg className="size-4 md:size-5 lg:size-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path d="M9 5l7 7-7 7" /></svg>
                         </button>
                     </div>
                 </div>
