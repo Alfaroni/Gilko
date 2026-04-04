@@ -138,10 +138,10 @@ const Kitten = () => {
 
                     </div>
                     <div className="hidden md:flex bg-neutral-100 p-1.5 rounded-full gap-1 shadow-inner">
-                        <button className="kitten-prev size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-tertiary transition-all shadow-xl shadow-primary/10 [&.swiper-button-disabled]:opacity-30 [&.swiper-button-disabled]:cursor-not-allowed [&.swiper-button-disabled]:hover:bg-primary">
+                        <button className="kitten-prev size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-tertiary transition-all shadow-xl shadow-primary/10 [&.swiper-button-disabled]:opacity-0 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:cursor-not-allowed [&.swiper-button-disabled]:hover:bg-primary">
                             <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M15 19l-7-7 7-7" /></svg>
                         </button>
-                        <button className="kitten-next size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-tertiary transition-all shadow-xl shadow-primary/10 [&.swiper-button-disabled]:opacity-30 [&.swiper-button-disabled]:cursor-not-allowed [&.swiper-button-disabled]:hover:bg-primary">
+                        <button className="kitten-next size-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-tertiary transition-all shadow-xl shadow-primary/10 [&.swiper-button-disabled]:opacity-0 [&.swiper-button-disabled]:pointer-events-none [&.swiper-button-disabled]:cursor-not-allowed [&.swiper-button-disabled]:hover:bg-primary">
                             <svg className="size-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
                         </button>
                     </div>
@@ -151,10 +151,10 @@ const Kitten = () => {
                 <div className="relative group/main-slider">
                     {/* Mobile Only Nav Arrows */}
                     <div className="flex md:hidden absolute top-[55%] inset-x-0 -translate-y-1/2 z-30 justify-between items-center -mx-3 pointer-events-none">
-                        <button className="kitten-prev pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
+                        <button className="kitten-prev pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all [&.swiper-button-disabled]:opacity-0 [&.swiper-button-disabled]:pointer-events-none">
                             <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" /></svg>
                         </button>
-                        <button className="kitten-next pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all">
+                        <button className="kitten-next pointer-events-auto size-8 rounded-full bg-white/90 backdrop-blur-md text-primary flex items-center justify-center shadow-2xl border border-primary/5 active:scale-90 transition-all [&.swiper-button-disabled]:opacity-0 [&.swiper-button-disabled]:pointer-events-none">
                             <svg className="size-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
                         </button>
                     </div>
