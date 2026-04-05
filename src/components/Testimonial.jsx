@@ -11,28 +11,114 @@ import 'swiper/css/pagination';
 const Testimonial = () => {
     const reviews = [
         {
-            name: "Amanda Putri",
-            date: "12 Maret 2026",
-            title: "British Shorthair Blue",
-            text: "Gilko Cattery sangat profesional. Kitten yang kami adopsi sangat sehat, aktif, dan sudah terbiasa dengan manusia. Benar-benar kualitas juara!",
-            image: "https://i.pravatar.cc/150?u=amanda",
-            rating: 5
+            id: 2,
+            name: "Gilang Vienna",
+            date: "5 Februari 2026",
+            title: "Visitor Impression",
+            text: "Saya melihat sendiri bahwa Gilko Cattery menjaga kebersihan dan kenyamanan dengan sangat baik. Suasananya tenang, rapi, dan terasa memang dibangun dengan perhatian pada kualitas.",
+            image: "https://i.pravatar.cc/150?u=gilang",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
         },
         {
-            name: "Reza Pratama",
-            date: "28 Februari 2026",
-            title: "British Longhair Bicolor",
-            text: "Proses adopsi di Gilko sangat transparan. Kami diberikan edukasi yang lengkap mengenai perawatan kucing. Sangat direkomendasikan untuk cat lovers!",
-            image: "https://i.pravatar.cc/150?u=reza",
-            rating: 5
+            id: 3,
+            name: "Jelita",
+            date: "12 Februari 2026",
+            title: "Visitor Impression",
+            text: "Yang paling terasa saat berkunjung adalah standar perawatannya. Bukan hanya bersih, tapi juga terlihat terstruktur dan penuh perhatian.",
+            image: "https://i.pravatar.cc/150?u=jelita",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
         },
         {
-            name: "Siti Aminah",
-            date: "15 Januari 2026",
-            title: "British Shorthair Lilac",
-            text: "Terima kasih Gilko! Si kecil sekarang jadi primadona di rumah. Karakter kucingnya sangat manis dan tenang, sesuai dengan deskripsi awal.",
-            image: "https://i.pravatar.cc/150?u=siti",
-            rating: 5
+            id: 4,
+            name: "Tony R",
+            date: "18 Februari 2026",
+            title: "Visitor Impression",
+            text: "Saya cukup terkesan dengan bagaimana Gilko menjaga lingkungan tetap nyaman dan tidak berlebihan. Terasa serius dalam membangun kualitas.",
+            image: "https://i.pravatar.cc/150?u=tony",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 5,
+            name: "Alfa Roni",
+            date: "24 Februari 2026",
+            title: "Visitor Impression",
+            text: "Kesan pertama saya, Gilko Cattery punya pendekatan yang rapi dan bertanggung jawab. Tidak terlihat asal jalan, tapi memang dipikirkan dengan matang.",
+            image: "https://i.pravatar.cc/150?u=alfa",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 6,
+            name: "Herza",
+            date: "2 Maret 2026",
+            title: "Visitor Impression",
+            text: "Setelah melihat langsung, saya merasa Gilko punya fondasi yang baik dari sisi kualitas, kebersihan, dan perhatian terhadap detail.",
+            image: "https://i.pravatar.cc/150?u=herza",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 7,
+            name: "Dessy",
+            date: "10 Maret 2026",
+            title: "Visitor Impression",
+            text: "Tempatnya memberi kesan tenang dan terawat. Buat saya, itu penting karena kualitas tidak hanya dilihat dari kitten, tapi juga dari lingkungan tumbuhnya.",
+            image: "https://i.pravatar.cc/150?u=dessy",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 8,
+            name: "Arie Wibowo",
+            date: "18 Maret 2026",
+            title: "Visitor Impression",
+            text: "Saya melihat ada keseriusan dalam cara Gilko membangun cattery ini. Standarnya terasa dijaga, dan itu membuat saya percaya dengan kualitasnya.",
+            image: "https://i.pravatar.cc/150?u=arie",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 9,
+            name: "Nita Annafia",
+            date: "25 Maret 2026",
+            title: "Prospective Adopter",
+            text: "Saya tertarik untuk lanjut mengenal Gilko karena pendekatannya terasa lebih serius dan transparan. Buat saya, itu penting sebelum memutuskan adopsi.",
+            image: "https://i.pravatar.cc/150?u=nita",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 10,
+            name: "Dimas Ardirosatama",
+            date: "2 April 2026",
+            title: "Prospective Adopter",
+            text: "Dari yang saya lihat, Gilko memberi kesan premium tapi tetap bertanggung jawab. Itu yang membuat saya merasa nyaman untuk mempertimbangkan adopsi dari sini.",
+            image: "https://i.pravatar.cc/150?u=dimas",
+            rating: 5,
+            verified: true,
+            source: "Visitor"
+        },
+        {
+            id: 11,
+            name: "Dr. Rifki Yusuf",
+            date: "4 April 2026",
+            title: "Buitenzorg Cattery",
+            text: "Gilko Cattery memiliki pendekatan yang rapi dan bertanggung jawab dalam membangun kualitas. Saya melihat ada perhatian yang kuat terhadap standar, konsistensi, dan keberlanjutan, sehingga kepercayaan itu dibangun bukan hanya lewat kata-kata, tetapi juga lewat proses yang dijalankan.",
+            image: "https://i.pravatar.cc/150?u=rifki",
+            rating: 5,
+            verified: true,
+            source: "Breeder Review"
         }
     ];
 
@@ -82,8 +168,8 @@ const Testimonial = () => {
                     >
                         {/* Multiple duplicates to ensure no gaps on very wide screens */}
                         {[...reviews, ...reviews, ...reviews].map((r, i) => (
-                            <SwiperSlide key={i} className="py-8">
-                                <div className="bg-white px-8 py-7 rounded-[2.5rem] shadow-sm border border-black/5 flex flex-col gap-6 text-left transition-all duration-500 hover:shadow-xl hover:-translate-y-1 h-full">
+                            <SwiperSlide key={i} className="py-6 lg:!h-auto">
+                                <div className="bg-white px-6 py-5 rounded-[2.5rem] shadow-sm border border-black/5 flex flex-col gap-4 text-left transition-all duration-500 hover:shadow-xl hover:-translate-y-1 lg:h-full">
                                     <div className="flex flex-col md:flex-row gap-4 justify-between items-start lg:items-center">
                                         <div className="flex items-center gap-4">
                                             <div className="relative">
