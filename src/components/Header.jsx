@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/gilko.png';
 
-const Header = () => {
+const Header = ({ onNavigate }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('#');
@@ -11,7 +11,7 @@ const Header = () => {
         { name: 'Tentang Kami', href: '#about' },
         { name: 'Galeri', href: '#instagram-gallery' },
         { name: 'Panduan Informasi', href: '#why-choose' },
-        { name: 'Testimoni', href: '#testimonial' },
+        { name: 'Journal', href: '#news', type: 'news' },
         { name: 'FAQ', href: '#faq' },
     ];
 
@@ -49,29 +49,37 @@ const Header = () => {
         return () => observer.disconnect();
     }, []);
 
-    const handleNavClick = (e, href) => {
+    const handleNavClick = (e, link) => {
         e.preventDefault();
         setIsMenuOpen(false);
-        setActiveSection(href);
+        const href = link.href;
+
+        // If we're not on home page and click a hash link, go home first
+        onNavigate('home');
 
         if (href === '#') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            setActiveSection('#');
             return;
         }
 
         if (href.startsWith('#')) {
-            const targetId = href.substring(1);
-            const targetElement = document.getElementById(targetId);
-            if (targetElement) {
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            setActiveSection(href);
+            // Small delay to allow home to render if we were on another page
+            setTimeout(() => {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }, 100);
         }
     };
 
@@ -84,9 +92,12 @@ const Header = () => {
                     }`}
             >
                 <div className="w-full flex items-center justify-between">
-                    <a href="/" className="flex min-w-44 shrink-0 gap-2 group transition-transform hover:scale-105">
+                    <button 
+                        onClick={() => onNavigate('home')}
+                        className="flex min-w-44 shrink-0 gap-2 group transition-transform hover:scale-105 cursor-pointer"
+                    >
                         <img src={logo} alt="Gilko Cattery" className="h-10 w-auto object-contain object-left" />
-                    </a>
+                    </button>
 
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex justify-center items-center flex-1 gap-1">
@@ -94,7 +105,7 @@ const Header = () => {
                             <a
                                 key={link.name}
                                 href={link.href}
-                                onClick={(e) => handleNavClick(e, link.href)}
+                                onClick={(e) => handleNavClick(e, link)}
                                 className={`px-4 whitespace-nowrap py-3 rounded-full text-primary transition-all duration-300 border  ${activeSection === link.href
                                     ? 'bg-orange-100 shadow-xl shadow-black/5 border-primary/5'
                                     : `border-transparent hover:text-tertiary ${link.highlight ? 'bg-secondary/30 shadow-inner' : 'hover:bg-secondary/10'}`
@@ -149,7 +160,7 @@ const Header = () => {
                         href={link.href}
                         className={`text-xl hover:text-tertiary transition-colors ${activeSection === link.href ? 'text-secondary' : 'text-white'
                             }`}
-                        onClick={(e) => handleNavClick(e, link.href)}
+                        onClick={(e) => handleNavClick(e, link)}
                     >
                         {link.name}
                     </a>

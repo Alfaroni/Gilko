@@ -1,15 +1,43 @@
 import React from 'react';
 import logo from '../assets/gilko-footer.png';
 
-const Footer = () => {
+const Footer = ({ onNavigate }) => {
     const navLinks = [
         { name: 'Beranda', href: '#' },
         { name: 'Tentang Kami', href: '#about' },
         { name: 'Galeri', href: '#instagram-gallery' },
         { name: 'Panduan Informasi', href: '#why-choose' },
-        { name: 'Testimoni', href: '#testimonial' },
+        { name: 'Journal', href: '#news' },
         { name: 'FAQ', href: '#faq' },
     ];
+
+    const handleNavClick = (e, link) => {
+        e.preventDefault();
+        onNavigate('home');
+        const href = link.href;
+
+        if (href === '#') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            return;
+        }
+
+        if (href.startsWith('#')) {
+            setTimeout(() => {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    const headerOffset = 80;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: "smooth"
+                    });
+                }
+            }, 100);
+        }
+    };
 
     return (
         <footer className="relative bg-primary pt-24 pb-12 overflow-hidden">
@@ -18,11 +46,16 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div className="lg:col-span-5 space-y-8 flex flex-col items-start text-left">
                         <div className="space-y-6">
-                            <img 
-                                src={logo} 
-                                alt="Gilko Cattery" 
-                                className="h-16 w-auto" 
-                            />
+                            <button 
+                                onClick={() => onNavigate('home')}
+                                className="h-16 w-auto cursor-pointer"
+                            >
+                                <img 
+                                    src={logo} 
+                                    alt="Gilko Cattery" 
+                                    className="h-full w-auto" 
+                                />
+                            </button>
                             <p className="text-white/70 max-w-md leading-relaxed  text-sm">
                                 Berdedikasi pada pelestarian ras British Shorthair & Longhair yang berkualitas tinggi. Menghadirkan kucing yang sehat, ceria , tenang ,lucu & menggemaskan untuk menjadi teman hidup di rumah baru kamu.
                             </p>
@@ -80,7 +113,11 @@ const Footer = () => {
                             <ul className="space-y-4 text-white font-bold text-[15px]">
                                 {navLinks.map((link) => (
                                     <li key={link.name}>
-                                        <a href={link.href} className="hover:text-tertiary transition-all inline-block">
+                                        <a 
+                                            href={link.href} 
+                                            onClick={(e) => handleNavClick(e, link)}
+                                            className="hover:text-tertiary transition-all inline-block cursor-pointer"
+                                        >
                                             {link.name}
                                         </a>
                                     </li>
@@ -99,10 +136,9 @@ const Footer = () => {
                                         <svg className="size-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                                     </div>
                                     <div className="text-left">
-                                        {/* <p className="text-[10px] font-black text-white/30 uppercase tracking-widest mb-1">HQ GILKO CATTERY</p> */}
                                         <p className="text-sm font-bold text-white leading-relaxed">
                                             Citralake Sawangan, <br /> 
-Depok, Jawa Barat, Indonesia
+                                            Depok, Jawa Barat, Indonesia
                                         </p>
                                         <p className="text-[11px] text-white/50 font-medium">Buka khusus dengan janji temu</p>
                                     </div>
