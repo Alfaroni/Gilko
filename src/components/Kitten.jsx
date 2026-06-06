@@ -85,7 +85,7 @@ const Kitten = () => {
                 { type: 'image', url: nobi1, pos: "object-center" },
                 { type: 'image', url: nobi2, pos: "object-center" }
             ],
-            status: "Available"
+            status: "Adopted"
         },
         {
             id: "nipon",
@@ -162,7 +162,7 @@ const Kitten = () => {
                     </div>
                 <Swiper
                     modules={[Navigation, Pagination]}
-                    spaceBetween={32}
+                    spaceBetween={16}
                     slidesPerView={1}
                     navigation={{
                         prevEl: '.kitten-prev',
@@ -183,7 +183,7 @@ const Kitten = () => {
                             <div className="group bg-white/80 rounded-[3.5rem] p-4 overflow-hidden border border-primary/5 hover:bg-white hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
 
                                 {/* Mini Photo Gallery Inside Card */}
-                                <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery`}>
+                                <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery `}>
                                     <Swiper
                                         modules={[Pagination, Navigation]}
                                         navigation={{
@@ -198,7 +198,7 @@ const Kitten = () => {
                                             0: { slidesPerView: 1.2, spaceBetween: 4 },
                                             1024: { slidesPerView: 1, spaceBetween: 0 }
                                         }}
-                                        className="w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg"
+                                        className={`w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg ${kitten.status === 'Adopted' ? 'grayscale opacity-80' : ''}`}
                                     >
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
@@ -296,14 +296,19 @@ const Kitten = () => {
 
                                     {/* Availability Tag */}
                                     <div className="absolute top-5 left-5 z-10">
-                                        <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md ${kitten.status === 'Available' ? 'bg-green-500/90 text-white' : 'bg-primary/60 text-white'
+                                        <span className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-lg backdrop-blur-md ${
+                                            kitten.status === 'Available'
+                                                ? 'bg-green-500/90 text-white'
+                                                : kitten.status === 'Adopted'
+                                                    ? 'bg-tertiary text-white'
+                                                    : ''
                                             }`}>
                                             {kitten.status}
                                         </span>
                                     </div>
                                 </div>
 
-                                <div className="px-2 lg:px-4 pb-4 space-y-6 flex flex-col flex-grow text-left">
+                                <div className={`px-2 lg:px-4 pb-4 space-y-6 flex flex-col flex-grow text-left ${kitten.status === 'Adopted' ? 'grayscale opacity-70 pointer-events-none' : ''}`}>
                                     <div className="flex items-center justify-between">
                                         <div>
                                             <div className="flex gap-1.5 items-center mb-3 -ml-1">
@@ -434,11 +439,9 @@ const Kitten = () => {
                                             rel="noopener noreferrer"
                                             className="w-full bg-primary text-white py-4 rounded-full font-bold transition-all group-hover:bg-tertiary shadow-xl shadow-primary/10 hover:-translate-y-1 hover:scale-105 text-xs uppercase flex items-center justify-center gap-3 group/btn"
                                         >
-
                                             <svg className='size-4 transition-transform group-hover/btn:translate-x-1' width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M1.16113 10.0611C1.25915 10.3084 1.28098 10.5794 1.22379 10.8391L0.513794 13.0325C0.490917 13.1437 0.496832 13.2589 0.530978 13.3672C0.565124 13.4755 0.626369 13.5733 0.708905 13.6513C0.791442 13.7293 0.892533 13.7849 1.00259 13.8129C1.11265 13.8409 1.22803 13.8403 1.33779 13.8111L3.61313 13.1458C3.85827 13.0972 4.11215 13.1184 4.34579 13.2071C5.76939 13.8719 7.38204 14.0126 8.89923 13.6043C10.4164 13.196 11.7406 12.2649 12.6383 10.9754C13.5359 9.68585 13.9492 8.12073 13.8053 6.55616C13.6614 4.99159 12.9696 3.52811 11.8518 2.42393C10.7341 1.31974 9.26226 0.645822 7.69605 0.52106C6.12984 0.396299 4.56988 0.828717 3.29142 1.74202C2.01296 2.65533 1.09815 3.99082 0.70839 5.51289C0.318631 7.03495 0.478974 8.64577 1.16113 10.0611Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
-</svg>
-
+                                                <path d="M1.16113 10.0611C1.25915 10.3084 1.28098 10.5794 1.22379 10.8391L0.513794 13.0325C0.490917 13.1437 0.496832 13.2589 0.530978 13.3672C0.565124 13.4755 0.626369 13.5733 0.708905 13.6513C0.791442 13.7293 0.892533 13.7849 1.00259 13.8129C1.11265 13.8409 1.22803 13.8403 1.33779 13.8111L3.61313 13.1458C3.85827 13.0972 4.11215 13.1184 4.34579 13.2071C5.76939 13.8719 7.38204 14.0126 8.89923 13.6043C10.4164 13.196 11.7406 12.2649 12.6383 10.9754C13.5359 9.68585 13.9492 8.12073 13.8053 6.55616C13.6614 4.99159 12.9696 3.52811 11.8518 2.42393C10.7341 1.31974 9.26226 0.645822 7.69605 0.52106C6.12984 0.396299 4.56988 0.828717 3.29142 1.74202C2.01296 2.65533 1.09815 3.99082 0.70839 5.51289C0.318631 7.03495 0.478974 8.64577 1.16113 10.0611Z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/>
+                                            </svg>
                                             Tanya Sekarang
                                         </a>
                                     </div>
