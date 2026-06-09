@@ -102,7 +102,7 @@ const Kitten = () => {
                 { type: 'image', url: nipon1, pos: "object-top" },
                 { type: 'image', url: nipon2, pos: "object-top" }
             ],
-            status: "Available"
+            status: "Adopted"
         }
     ];
 
