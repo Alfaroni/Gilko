@@ -8,9 +8,10 @@ import videoKitten from '../assets/daily.mp4';
 
 // Import Kittens from Kitten Folder
 // Hatori
-import hatori1 from '../assets/Kitten/Hatori/foto1.png';
-import hatori2 from '../assets/Kitten/Hatori/foto2.png';
-import hatoriVideo from '../assets/Kitten/Hatori/hatori.mp4';
+import hatori1 from '../assets/Kitten/Hatori/new_foto1.jpeg';
+import hatori2 from '../assets/Kitten/Hatori/new_foto2.jpeg';
+import hatori3 from '../assets/Kitten/Hatori/new_foto3.jpeg';
+import hatoriVideo from '../assets/Kitten/Hatori/hatoriNEW.mp4';
 
 // Nobi
 import nobi1 from '../assets/Kitten/Nobi/foto1.png';
@@ -67,6 +68,7 @@ const Kitten = () => {
                 { type: 'video', url: hatoriVideo },
                 { type: 'image', url: hatori1, pos: "object-center" },
                 { type: 'image', url: hatori2, pos: "object-center" },
+                { type: 'image', url: hatori3, pos: "object-center" },
             ],
             status: "Available"
         },
