@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import logo from '../assets/gilko.png';
 
-const Header = ({ onNavigate }) => {
+const Header = ({ currentView, onNavigate }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('#');
@@ -18,21 +18,27 @@ const Header = ({ onNavigate }) => {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
-            if (window.scrollY < 200) {
+            if (window.scrollY < 200 && currentView?.name === 'home') {
                 setActiveSection('#');
             }
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [currentView]);
 
     useEffect(() => {
+        if (currentView?.name === 'news-list' || currentView?.name === 'news-detail') {
+            setActiveSection('#news');
+            return;
+        }
+
         const sectionIds = navLinks
             .map(link => link.href)
             .filter(href => href.startsWith('#') && href !== '#')
             .map(href => href.substring(1));
 
         const observer = new IntersectionObserver((entries) => {
+            if (currentView?.name !== 'home') return;
             const visibleSections = entries.filter(entry => entry.isIntersecting);
             if (visibleSections.length > 0) {
                 setActiveSection(`#${visibleSections[0].target.id}`);
@@ -47,7 +53,7 @@ const Header = ({ onNavigate }) => {
         });
 
         return () => observer.disconnect();
-    }, []);
+    }, [currentView]);
 
     const handleNavClick = (e, link) => {
         e.preventDefault();
@@ -55,7 +61,9 @@ const Header = ({ onNavigate }) => {
         const href = link.href;
 
         // If we're not on home page and click a hash link, go home first
-        onNavigate('home');
+        if (currentView?.name !== 'home') {
+            onNavigate('home');
+        }
 
         if (href === '#') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -101,19 +109,22 @@ const Header = ({ onNavigate }) => {
 
                     {/* Desktop Nav */}
                     <nav className="hidden lg:flex justify-center items-center flex-1 gap-1">
-                        {navLinks.map((link) => (
-                            <a
-                                key={link.name}
-                                href={link.href}
-                                onClick={(e) => handleNavClick(e, link)}
-                                className={`px-4 whitespace-nowrap py-3 rounded-full text-primary transition-all duration-300 border  ${activeSection === link.href
-                                    ? 'bg-orange-100 shadow-xl shadow-black/5 border-primary/5'
-                                    : `border-transparent hover:text-tertiary ${link.highlight ? 'bg-secondary/30 shadow-inner' : 'hover:bg-secondary/10'}`
-                                    }`}
-                            >
-                                {link.name}
-                            </a>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isActive = activeSection === link.href || (link.href === '#news' && (currentView?.name === 'news-list' || currentView?.name === 'news-detail'));
+                            return (
+                                <a
+                                    key={link.name}
+                                    href={link.href}
+                                    onClick={(e) => handleNavClick(e, link)}
+                                    className={`px-4 whitespace-nowrap py-3 rounded-full text-primary transition-all duration-300 border  ${isActive
+                                        ? 'bg-orange-100 shadow-xl shadow-black/5 border-primary/5'
+                                        : `border-transparent hover:text-tertiary ${link.highlight ? 'bg-secondary/30 shadow-inner' : 'hover:bg-secondary/10'}`
+                                        }`}
+                                >
+                                    {link.name}
+                                </a>
+                            );
+                        })}
                     </nav>
 
                     <div className="min-w-44 justify-end hidden lg:flex">
@@ -154,17 +165,20 @@ const Header = ({ onNavigate }) => {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                {navLinks.map((link) => (
-                    <a
-                        key={link.name}
-                        href={link.href}
-                        className={`text-xl hover:text-tertiary transition-colors ${activeSection === link.href ? 'text-secondary' : 'text-white'
-                            }`}
-                        onClick={(e) => handleNavClick(e, link)}
-                    >
-                        {link.name}
-                    </a>
-                ))}
+                {navLinks.map((link) => {
+                    const isActive = activeSection === link.href || (link.href === '#news' && (currentView?.name === 'news-list' || currentView?.name === 'news-detail'));
+                    return (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            className={`text-xl hover:text-tertiary transition-colors ${isActive ? 'text-secondary' : 'text-white'
+                                }`}
+                            onClick={(e) => handleNavClick(e, link)}
+                        >
+                            {link.name}
+                        </a>
+                    );
+                })}
                 <a
                     href="https://wa.me/628138784422?text=Halo%20Gilko%20Cattery%2C%20saya%20ingin%20bertanya%20mengenai%20adopsi%20kitten."
                     className="bg-tertiary text-white px-8 py-4 rounded-full text-xl shadow-2xl shadow-tertiary/20"

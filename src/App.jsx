@@ -23,21 +23,48 @@ function App() {
   const handleNavigate = (name, id = null) => {
     setView({ name, id });
     window.scrollTo(0, 0);
+
+    // Sync URL query params with current view state
+    const url = new URL(window.location.href);
+    if (name === 'news-detail' && id) {
+      url.searchParams.set('news', id);
+      url.searchParams.delete('page');
+    } else if (name === 'news-list') {
+      url.searchParams.set('page', 'news-list');
+      url.searchParams.delete('news');
+    } else {
+      url.searchParams.delete('page');
+      url.searchParams.delete('news');
+    }
+    window.history.pushState({}, '', url.pathname + url.search + url.hash);
   };
 
-  // Sync with browser back/forward if possible (optional, but good for "link biasa" feel)
+  // Sync state with browser back/forward buttons and initial URL parameters
   useEffect(() => {
-    const handlePopState = () => {
-      // Basic implementation: if back button is pressed, go home
-      setView({ name: 'home', id: null });
+    const handleUrlChange = () => {
+      const params = new URLSearchParams(window.location.search);
+      const newsId = params.get('news');
+      const page = params.get('page');
+
+      if (newsId) {
+        setView({ name: 'news-detail', id: parseInt(newsId, 10) });
+      } else if (page === 'news-list') {
+        setView({ name: 'news-list', id: null });
+      } else {
+        setView({ name: 'home', id: null });
+      }
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+
+    // Run parsing on initial mount
+    handleUrlChange();
+
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
   }, []);
 
   return (
     <div className="App selection:bg-tertiary selection:text-white font-body text-sm bg-[#fef6ee] min-h-screen overflow-x-hidden">
-      <Header onNavigate={handleNavigate} />
+      <Header currentView={view} onNavigate={handleNavigate} />
       
       <main className='overflow-x-hidden'>
         {view.name === 'home' && (
@@ -49,7 +76,7 @@ function App() {
             <Kitten />
             <Bloodline />
             <FeaturedVideo />
-            {/* <NewsSection onNavigate={handleNavigate} /> */}
+            <NewsSection onNavigate={handleNavigate} />
             <WhyChoose />
             <Shop />
             <Testimonial />
