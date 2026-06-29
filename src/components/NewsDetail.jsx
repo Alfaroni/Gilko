@@ -58,7 +58,7 @@ const NewsDetail = ({ id, onNavigate }) => {
                         <h1 className="text-3xl lg:text-5xl font-heading font-black text-primary leading-tight">
                             {news.title}
                         </h1>
-                        <div className="flex items-center gap-4 text-primary/50 text-xs md:text-sm font-medium">
+                        <div className="flex items-center gap-2 text-primary/50 text-xs md:text-sm font-medium">
                             <div className="flex items-center gap-2">
                                 <div className="size-8 rounded-full bg-primary/10 flex items-center justify-center">
                                     <svg className="size-4" fill="currentColor" viewBox="0 0 20 20">
@@ -192,7 +192,7 @@ const NewsDetail = ({ id, onNavigate }) => {
                 {/* Related Articles Section */}
                 {relatedNews.length > 0 && (
                     <div className="container max-w-6xl mt-24 mx-auto px-4 md:px-6 relative z-10">
-                        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                        <div className="flex flex-col items-start md:flex-row md:items-end justify-between mb-16 gap-8">
                             <div className="space-y-4">
                                 <div className="flex items-center gap-2">
                                     <span className="w-8 h-[2px] bg-tertiary"></span>

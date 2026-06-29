@@ -82,7 +82,7 @@ const NewsSection = ({ onNavigate }) => {
             <div className="absolute top-0 right-0 w-1/3 h-full bg-secondary/10 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
             
             <div className="container max-w-6xl mx-auto px-4 md:px-6 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <div className="flex flex-col items-start md:flex-row md:items-end justify-between mb-16 gap-8">
                     <div className="space-y-4">
                         <div className="flex items-center gap-2">
                             <span className="w-8 h-[2px] bg-tertiary"></span>
