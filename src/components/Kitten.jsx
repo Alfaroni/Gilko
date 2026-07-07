@@ -164,8 +164,10 @@ const Kitten = () => {
                     </div>
                 <Swiper
                     modules={[Navigation, Pagination]}
-                    spaceBetween={16}
+                    spaceBetween={24}
                     slidesPerView={1}
+                    slidesPerGroup={1}
+                    grabCursor={true}
                     navigation={{
                         prevEl: '.kitten-prev',
                         nextEl: '.kitten-next',
@@ -173,10 +175,6 @@ const Kitten = () => {
                     pagination={{
                         clickable: true,
                         dynamicBullets: true,
-                    }}
-                    breakpoints={{
-                        640: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 },
                     }}
                     className="!overflow-visible [&>.swiper-wrapper]:items-end pb-24 md:pb-0 [&>.swiper-pagination>.swiper-pagination-bullet]:bg-primary! [&>.swiper-pagination]:md:hidden [&>.swiper-pagination]:-bottom-6!"
                 >
