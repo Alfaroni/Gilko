@@ -258,6 +258,7 @@ function initKittenSection() {
         const mainSwiper = new Swiper('.main-kitten-swiper', {
             spaceBetween: 16,
             slidesPerView: 1,
+            noSwipingSelector: '.mini-swiper',
             navigation: {
                 prevEl: '.kitten-prev',
                 nextEl: '.kitten-next',
@@ -277,6 +278,8 @@ function initKittenSection() {
         document.querySelectorAll('.mini-swiper').forEach(function (el) {
             const id = el.getAttribute('data-id');
             new Swiper(el, {
+                nested: true,
+                touchReleaseOnEdges: true,
                 spaceBetween: 4,
                 slidesPerView: 1.2,
                 observer: true,

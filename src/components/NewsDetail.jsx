@@ -85,12 +85,12 @@ const NewsDetail = ({ id, onNavigate }) => {
                         />
                     </div>
 
-                    <div className="prose prose-lg max-w-none text-primary/85 leading-relaxed space-y-6">
+                    <div className="prose prose-lg max-w-none leading-relaxed">
                        
                         <p>
                             Nutrisi yang tepat sangat penting dalam memelihara kucing ras seperti British Shorthair maupun Longhair. Membiasakan mereka makan secara terjadwal dengan porsi terkontrol akan menghindarkan dari bahaya obesitas yang kerap dialami ras berbadan gempal ini. Selain itu, kebersihan kandang dan tempat tidur harus selalu terjaga guna mencegah jamur dan penyakit kulit.
                         </p>
-                        <h2 className="text-2xl font-heading font-bold text-primary pt-4">Persiapan Awal & Perawatan Bulu</h2>
+                        <h2>Persiapan Awal & Perawatan Bulu</h2>
                         <p>
                             Grooming rutin minimal 2 kali seminggu untuk British Shorthair, dan setiap hari untuk British Longhair sangat dianjurkan. Gunakan sisir khusus dengan ujung lembut untuk mengangkat bulu mati secara maksimal. Jangan lupa bersihkan bagian telinga dan potong kuku secara berkala setiap 2 minggu sekali.
                         </p>

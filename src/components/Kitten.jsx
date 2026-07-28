@@ -168,6 +168,7 @@ const Kitten = () => {
                     slidesPerView={1}
                     slidesPerGroup={1}
                     grabCursor={true}
+                    noSwipingSelector=".mini-swiper"
                     navigation={{
                         prevEl: '.kitten-prev',
                         nextEl: '.kitten-next',
@@ -186,6 +187,8 @@ const Kitten = () => {
                                 <div className={`relative ${i % 3 === 0 ? 'aspect-square' : i % 3 === 1 ? 'aspect-square lg:aspect-[3/3.5]' : 'aspect-square lg:aspect-[3/2.5]'} rounded-[2.5rem] overflow-hidden mb-6 group/gallery `}>
                                     <Swiper
                                         modules={[Pagination, Navigation]}
+                                        nested={true}
+                                        touchReleaseOnEdges={true}
                                         navigation={{
                                             prevEl: `.mini-prev-${kitten.id}`,
                                             nextEl: `.mini-next-${kitten.id}`,
@@ -198,7 +201,7 @@ const Kitten = () => {
                                             0: { slidesPerView: 1.2, spaceBetween: 4 },
                                             1024: { slidesPerView: 1, spaceBetween: 0 }
                                         }}
-                                        className={`w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg ${kitten.status === 'Adopted' ? 'grayscale opacity-80' : ''}`}
+                                        className={`mini-swiper w-full h-full [&>.swiper-pagination]:!z-20 [&>.swiper-pagination]:!bottom-2 [&>.swiper-pagination>.swiper-pagination-bullet]:!bg-white/80 [&>.swiper-pagination>.swiper-pagination-bullet]:!opacity-80 [&>.swiper-pagination>.swiper-pagination-bullet-active]:!bg-white [&>.swiper-pagination>.swiper-pagination-bullet-active]:!opacity-100 drop-shadow-lg ${kitten.status === 'Adopted' ? 'grayscale opacity-80' : ''}`}
                                     >
                                         {kitten.media.map((item, idx) => (
                                             <SwiperSlide key={idx}>
